@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Services – The Joseph Moyer Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Services offered by The Joseph Moyer Project – photo sessions, prints, poem prints, flyer design, and projection mapping."
+  />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      background: #0b1120;
+      color: #111827;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* HEADER (same as index) */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(15, 23, 42, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(148,163,184,0.45);
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 0;
+    }
+    nav a {
+      color: #e5e7eb;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      position: relative;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -0.25rem;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #facc15;
+      transition: width 0.16s ease;
+    }
+    nav a:hover::after { width: 100%; }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      height: 60vh;
+      background-image: url("assets/home/self portrait 02.jpg");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      max-width: 720px;
+      padding: 1rem;
+    }
+    .hero-logo-img {
+      width: 90px;
+      margin: 0 auto 1rem;
+    }
+    .hero-title {
+      font-family: "Audiowide", sans-serif;
+      letter-spacing: 0.18em;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      margin-bottom: 0.6rem;
+    }
+    .hero-tagline {
+      font-size: clamp(1.05rem, 1.9vw, 1.4rem);
+      color: #fef9c3;
+      margin-bottom: 1.8rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.65rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: 0.2s;
+    }
+    .btn-primary {
+      background: #facc15;
+      color: #111827;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent;
+      color: #facc15;
+      border-color: #facc15;
+    }
+    .btn-outline:hover { background: rgba(250,204,21,0.15); }
+
+    /* SECTIONS */
+    section { padding: 3.5rem 0; }
+    .section-light { background: #f5f5f7; color: #111827; }
+    .section-dark { background: #020617; color: #e5e7eb; }
+
+    .section-subtitle {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0.8;
+      margin-bottom: 0.4rem;
+    }
+    .section-heading {
+      margin: 0 0 0.75rem;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+    .section-intro {
+      max-width: 720px;
+      margin-bottom: 1.75rem;
+      opacity: 0.9;
+    }
+
+    /* LAYOUT HELPERS */
+    .flex-layout {
+      display: grid;
+      gap: 2rem;
+    }
+    @media (min-width: 900px) {
+      .flex-2 {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+        align-items: flex-start;
+      }
+      .flex-2.flip {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+      }
+    }
+
+    /* PRICING CARDS */
+    .pricing-grid {
+      display: grid;
+      gap: 1.4rem;
+    }
+    @media (min-width: 768px) {
+      .pricing-grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    .pricing-card {
+      background: #ffffff;
+      border-radius: 1rem;
+      padding: 1.2rem 1.3rem;
+      box-shadow: 0 4px 16px rgba(15,23,42,0.08);
+    }
+    .section-dark .pricing-card {
+      background: #020617;
+      border: 1px solid rgba(148,163,184,0.5);
+      box-shadow: none;
+    }
+    .pricing-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.4rem;
+      font-size: 1.1rem;
+    }
+    .price-tag {
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .pricing-card p {
+      margin: 0 0 0.4rem;
+      font-size: 0.95rem;
+    }
+    .meta-note {
+      font-size: 0.85rem;
+      opacity: 0.85;
+    }
+
+    /* LISTS */
+    ul {
+      padding-left: 1.1rem;
+      margin-top: 0.3rem;
+      margin-bottom: 0.6rem;
+    }
+    li { margin-bottom: 0.25rem; }
+
+    /* FORMS */
+    form {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 1.2rem;
+    }
+    label {
+      font-size: 0.8rem;
+      opacity: 0.9;
+      display: block;
+      margin-bottom: 0.1rem;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.6rem 0.7rem;
+      border-radius: 0.6rem;
+      border: 1px solid rgba(148,163,184,0.9);
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+    .section-dark input,
+    .section-dark textarea {
+      background: #020617;
+      color: #f9fafb;
+      border-color: #475569;
+    }
+    textarea { min-height: 110px; }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #facc15;
+      box-shadow: 0 0 0 1px rgba(250,204,21,0.4);
+    }
+
+    .section-footer {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .small-note {
+      font-size: 0.85rem;
+      opacity: 0.85;
+    }
+
+    /* FOOTER (simple) */
+    footer {
+      background: #020617;
+      color: #9ca3af;
+      padding: 1.5rem 0;
+      text-align: center;
+      font-size: 0.8rem;
+      border-top: 1px solid #1f2937;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <a href="index.html#hero">Basecamp</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="index.html#store">The Store</a>
+    <a href="index.html#blog">Notes from the Field</a>
+    <a href="services.html">Services</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <img src="assets/logo/logo (white).png" alt="The Joseph Moyer Project logo" class="hero-logo-img" />
+    <h1 class="hero-title">SERVICES</h1>
+    <p class="hero-tagline">
+      Here’s where imagination gets practical—sessions, prints, designs, and light-built worlds made just for you.
+    </p>
+    <a href="#photo" class="btn btn-primary">Start with Photo Sessions</a>
+  </div>
+</section>
+
+<!-- PHOTO SESSIONS -->
+<section class="section-light" id="photo">
+  <div class="container flex-layout flex-2">
+    <div>
+      <div class="section-subtitle">Photography</div>
+      <h2 class="section-heading">Photo Sessions</h2>
+      <p class="section-intro">
+        I don’t just take pictures—I capture the moment that made the day.
+        Whether you need updated portraits, content for your brand, or just want to feel seen,
+        these sessions are designed for real people who want real quality.
+      </p>
+
+      <div class="pricing-grid cols-2">
+        <div class="pricing-card">
+          <h3>Portrait Mini</h3>
+          <div class="price-tag">$175</div>
+          <p>• 1 hour on location</p>
+          <p>• 10–15 edited digital images</p>
+          <p>• You’ll get the best of the best—no filler.</p>
+          <p class="meta-note">Optional: add two small prints.</p>
+        </div>
+
+        <div class="pricing-card">
+          <h3>Lifestyle Standard</h3>
+          <div class="price-tag">$350</div>
+          <p>• 2 hours, up to 2 locations</p>
+          <p>• 25–35 edited digital images</p>
+          <p>Great for families, artists, small brands, or anyone who wants a little more range.</p>
+          <p class="meta-note">Includes optional print bundle: one large metal print + two smalls.</p>
+        </div>
+      </div>
+
+      <div class="pricing-card" style="margin-top:1.3rem;">
+        <h3>Need more?</h3>
+        <p>• Add an extra hour: <strong>+ $100</strong></p>
+        <p>• Full gallery access: <strong>+ $75</strong></p>
+        <p>• 48-hour turnaround: <strong>+ $50</strong></p>
+      </div>
+
+      <div class="section-footer">
+        <a href="index.html#store" class="btn btn-outline">Browse Prints in the Store</a>
+        <p class="small-note">Prefer to start with artwork instead of a session? The store has you covered.</p>
+      </div>
+    </div>
+
+    <div>
+      <h3>Book a Photo Session</h3>
+      <p class="small-note">
+        Share a bit about what you’re looking for, your ideal date, and any non-negotiables (like “golden hour only”).
+      </p>
+      <form name="photo-session" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="photo-session" />
+        <input type="hidden" name="service" value="Photo Session" />
+        <div>
+          <label for="photo-name">Name</label>
+          <input id="photo-name" name="name" required />
+        </div>
+        <div>
+          <label for="photo-email">Email</label>
+          <input id="photo-email" name="email" type="email" required />
+        </div>
+        <div>
+          <label for="photo-package">Which package are you interested in?</label>
+          <input id="photo-package" name="package" placeholder="Portrait Mini, Lifestyle Standard, or not sure" />
+        </div>
+        <div>
+          <label for="photo-message">Tell me about your session.</label>
+          <textarea id="photo-message" name="message" placeholder="Who’s in the photos, where, and when you’re hoping to schedule."></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Send Photo Session Request</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- PRINTS -->
+<section class="section-dark" id="prints">
+  <div class="container flex-layout flex-2 flip">
+    <div>
+      <div class="section-subtitle">Prints</div>
+      <h2 class="section-heading">Gallery-Worthy Prints</h2>
+      <p class="section-intro">
+        I only offer prints I’d hang on my own wall—vivid, durable, and intentional. Whether you’re filling a hallway,
+        an office, or that one blank wall that keeps staring at you, these are made to last.
+      </p>
+
+      <div class="pricing-grid cols-2">
+        <div class="pricing-card">
+          <h3>Metal Prints (Premium)</h3>
+          <p>12×16 → <strong>$130</strong></p>
+          <p>16×20 → <strong>$175</strong></p>
+          <p>24×36 → <strong>$275</strong></p>
+          <p class="meta-note">
+            Bold, glossy, and built to last. They catch the light beautifully and make any space feel intentional.
+          </p>
+        </div>
+
+        <div class="pricing-card">
+          <h3>Canvas & Paper Options</h3>
+          <p>Luster Photo Poster (12×16) → <strong>$40</strong></p>
+          <p>Canvas Wrap (16×20) → <strong>$95</strong></p>
+          <p class="meta-note">
+            Softer or more budget-friendly options—perfect for gifts or smaller displays.
+          </p>
+        </div>
+      </div>
+
+      <div class="section-footer">
+        <a href="index.html#store" class="btn btn-primary">Visit the Print Store</a>
+        <p class="small-note">Many existing pieces are already print-ready—and custom requests are welcome.</p>
+      </div>
+    </div>
+
+    <div>
+      <h3>Request a Custom Print</h3>
+      <p class="small-note">
+        Already saw a specific photo you love? Tell me which one and what size or material you’re imagining.
+      </p>
+      <form name="print-request" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="print-request" />
+        <input type="hidden" name="service" value="Prints" />
+        <div>
+          <label for="print-name">Name</label>
+          <input id="print-name" name="name" required />
+        </div>
+        <div>
+          <label for="print-email">Email</label>
+          <input id="print-email" name="email" type="email" required />
+        </div>
+        <div>
+          <label for="print-piece">Which image or theme?</label>
+          <input id="print-piece" name="piece" placeholder="Describe the photo, or link to it from the portfolio." />
+        </div>
+        <div>
+          <label for="print-details">Size, material, and any other details</label>
+          <textarea id="print-details" name="details" placeholder="Metal vs. canvas, preferred size, quantity, destination, etc."></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Request Print Quote</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- POEM PRINTS -->
+<section class="section-light" id="poems">
+  <div class="container flex-layout flex-2">
+    <div>
+      <div class="section-subtitle">Poetry</div>
+      <h2 class="section-heading">Poem Prints</h2>
+      <p class="section-intro">
+        Custom poetry paired with professional design and print—built around your story, your person, or your moment.
+      </p>
+
+      <div class="pricing-grid cols-2">
+        <div class="pricing-card">
+          <h3>Standard Options</h3>
+          <p>Digital only – <strong>$30</strong></p>
+          <p>Paper Print (12×16) – <strong>$50</strong></p>
+          <p>Metal Print (12×16) – <strong>$120</strong></p>
+        </div>
+        <div class="pricing-card">
+          <h3>Custom Poem + Print</h3>
+          <p>Starting at <strong>$175</strong></p>
+          <p class="meta-note">
+            Tell me the vibe, story, or person at the center of it all—I’ll take it from there and craft something
+            unique to you.
+          </p>
+        </div>
+      </div>
+
+      <div class="section-footer">
+        <a href="index.html#store" class="btn btn-outline">See Current Poem Prints</a>
+        <p class="small-note">You can start with an existing design or commission something entirely new.</p>
+      </div>
+    </div>
+
+    <div>
+      <h3>Start a Poem Print</h3>
+      <p class="small-note">
+        Share who or what this piece is for, and any key details or phrases you’d like woven into the poem.
+      </p>
+      <form name="poem-print" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="poem-print" />
+        <input type="hidden" name="service" value="Poem Print" />
+        <div>
+          <label for="poem-name">Name</label>
+          <input id="poem-name" name="name" required />
+        </div>
+        <div>
+          <label for="poem-email">Email</label>
+          <input id="poem-email" name="email" type="email" required />
+        </div>
+        <div>
+          <label for="poem-type">Which option?</label>
+          <input id="poem-type" name="type" placeholder="Digital, paper print, metal print, or custom poem + print" />
+        </div>
+        <div>
+          <label for="poem-details">Tell me the story or vibe.</label>
+          <textarea id="poem-details" name="details" placeholder="Who is this for? Any key memories, themes, or phrases?"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Begin Poem Print</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FLYER DESIGN -->
+<section class="section-dark" id="flyers">
+  <div class="container flex-layout flex-2 flip">
+    <div>
+      <div class="section-subtitle">Design</div>
+      <h2 class="section-heading">Flyer Design</h2>
+      <p class="section-intro">
+        Whether it’s for a small event or a full campaign, your flyer should do more than inform—it should leave an impression.
+      </p>
+
+      <div class="pricing-grid cols-2">
+        <div class="pricing-card">
+          <h3>Standard Pricing</h3>
+          <p>One-sided flyer – <strong>$75</strong></p>
+          <p>Double-sided or folded – <strong>$125</strong></p>
+          <p>Rush design – <strong>+ $50</strong></p>
+        </div>
+
+        <div class="pricing-card">
+          <h3>What I’ll Ask Before We Start</h3>
+          <ul>
+            <li>What’s the flyer for?</li>
+            <li>Who’s your audience?</li>
+            <li>Do you already have a logo, colors, or images?</li>
+            <li>Digital, print, or both?</li>
+            <li>When do you need it?</li>
+            <li>Got an example of what you like?</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-footer">
+        <a href="index.html#store" class="btn btn-outline">View Design-Related Products</a>
+      </div>
+    </div>
+
+    <div>
+      <h3>Request a Flyer Design</h3>
+      <p class="small-note">
+        The more detail you share up front, the faster we can land on something that feels exactly right.
+      </p>
+      <form name="flyer-design" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="flyer-design" />
+        <input type="hidden" name="service" value="Flyer Design" />
+        <div>
+          <label for="flyer-name">Name</label>
+          <input id="flyer-name" name="name" required />
+        </div>
+        <div>
+          <label for="flyer-email">Email</label>
+          <input id="flyer-email" name="email" type="email" required />
+        </div>
+        <div>
+          <label for="flyer-purpose">What’s the flyer for?</label>
+          <input id="flyer-purpose" name="purpose" />
+        </div>
+        <div>
+          <label for="flyer-details">Audience, style, and deadline</label>
+          <textarea id="flyer-details" name="details" placeholder="Who is this for, what should it feel like, and when do you need it?"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit Flyer Request</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTION MAPPING -->
+<section class="section-light" id="projection">
+  <div class="container flex-layout flex-2">
+    <div>
+      <div class="section-subtitle">Light & Motion</div>
+      <h2 class="section-heading">Projection Mapping (Wedding Cakes & Events)</h2>
+      <p class="section-intro">
+        This is where art meets technology. Imagine your wedding cake glowing with animated visuals, custom patterns,
+        or even your names woven into light.
+      </p>
+
+      <div class="pricing-card">
+        <h3>Wedding Cake Mapping</h3>
+        <p class="price-tag">Starting at $850</p>
+        <p>Includes:</p>
+        <ul>
+          <li>Custom design mapped to your cake’s structure</li>
+          <li>Visual mockup beforehand</li>
+          <li>Setup and calibration on-site</li>
+          <li>Up to 2 hours of projection at the venue</li>
+        </ul>
+        <p>Available add-ons:</p>
+        <ul>
+          <li>Extra projection elements (e.g. name reveal, video montage)</li>
+          <li>Rehearsal night preview: +$300</li>
+          <li>Additional gear rental (if needed)</li>
+        </ul>
+      </div>
+
+      <div class="section-footer">
+        <a href="index.html#store" class="btn btn-outline">Explore Related Visual Work</a>
+      </div>
+    </div>
+
+    <div>
+      <h3>Request Projection Mapping</h3>
+      <p class="small-note">
+        Share your event date, location, and what you’re picturing—cake mapping, stage, walls, or something entirely different.
+      </p>
+      <form name="projection-mapping" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="projection-mapping" />
+        <input type="hidden" name="service" value="Projection Mapping" />
+        <div>
+          <label for="proj-name">Name</label>
+          <input id="proj-name" name="name" required />
+        </div>
+        <div>
+          <label for="proj-email">Email</label>
+          <input id="proj-email" name="email" type="email" required />
+        </div>
+        <div>
+          <label for="proj-date">Event Date & Location</label>
+          <input id="proj-date" name="event_info" placeholder="Date, venue, and city" />
+        </div>
+        <div>
+          <label for="proj-details">What are you imagining?</label>
+          <textarea id="proj-details" name="details" placeholder="Cake mapping, full event, theme, colors, or story you’d like told in light."></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Request Mapping Quote</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- SOMETHING ELSE -->
+<section class="section-dark" id="custom">
+  <div class="container">
+    <div class="section-subtitle">Custom & Collaboration</div>
+    <h2 class="section-heading">Got Something Else in Mind?</h2>
+    <p class="section-intro">
+      If it’s creative and it’s not on this list, I probably still want to hear about it.
+      Have an idea that doesn’t fit a category? Want to collaborate on something experimental? Let’s talk.
+    </p>
+
+    <div class="flex-layout flex-2">
+      <div>
+        <h3>Submit Your Idea</h3>
+        <p class="small-note">
+          Just drop a short message with what you're thinking, your budget range, and when you need it by.
+          I’ll take it from there.
+        </p>
+        <form name="custom-idea" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="custom-idea" />
+          <input type="hidden" name="service" value="Custom / Other" />
+          <div>
+            <label for="custom-name">Name</label>
+            <input id="custom-name" name="name" required />
+          </div>
+          <div>
+            <label for="custom-email">Email</label>
+            <input id="custom-email" name="email" type="email" required />
+          </div>
+          <div>
+            <label for="custom-idea-field">What are you thinking?</label>
+            <textarea id="custom-idea-field" name="idea" placeholder="Describe the project, collaboration, or experiment."></textarea>
+          </div>
+          <div>
+            <label for="custom-budget">Budget range (optional)</label>
+            <input id="custom-budget" name="budget" placeholder="Example: $300–$500, or 'not sure yet'" />
+          </div>
+          <div>
+            <label for="custom-timeline">Timeline</label>
+            <input id="custom-timeline" name="timeline" placeholder="When would you like this to happen?" />
+          </div>
+          <button class="btn btn-primary" type="submit">Send Idea</button>
+        </form>
+      </div>
+
+      <div>
+        <h3>Browse the Store</h3>
+        <p class="small-note">
+          Not ready for a full custom project? You can still take home prints, poems, and designs that are already waiting for you.
+        </p>
+        <a href="index.html#store" class="btn btn-outline">Go to The Store</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © <span id="year"></span> The Joseph Moyer Project. All rights reserved.
+  </div>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</footer>
+
+</body>
+</html>

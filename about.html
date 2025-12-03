@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About – The Joseph Moyer Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Learn more about Joseph Moyer — photographer, writer, and projection mapping artist behind The Joseph Moyer Project."
+  />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0b1120;
+      color: #111827;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(15, 23, 42, 0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.5);
+    }
+    .header-inner {
+      display: flex;
+      justify-content: center;
+      padding: 0.9rem 0.5rem;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.8rem;
+      font-size: 0.9rem;
+    }
+    nav a {
+      position: relative;
+      color: #e5e7eb;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.8rem;
+      padding: 0.15rem 0.4rem;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.25rem;
+      width: 0;
+      height: 1px;
+      background: #facc15;
+      transition: width 0.16s ease;
+    }
+    nav a:hover::after { width: 100%; }
+
+    main { padding-bottom: 3rem; }
+
+    .section-light {
+      background: #f5f5f7;
+      color: #111827;
+    }
+    .section-dark {
+      background: #020617;
+      color: #e5e7eb;
+    }
+    section { padding: 3rem 0; }
+    .section-subtitle {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-bottom: 0.2rem;
+      opacity: 0.8;
+    }
+    .section-heading {
+      font-size: 2rem;
+      margin: 0 0 0.8rem;
+    }
+    .section-intro {
+      max-width: 720px;
+      font-size: 0.98rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease,
+        background-color 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: #facc15;
+      color: #111827;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.4);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.5);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: #0b1120;
+      border-color: #0b1120;
+    }
+
+    /* Hero / top section */
+    .about-hero {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+    .about-layout {
+      display: grid;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    @media (min-width: 900px) {
+      .about-layout {
+        grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      }
+    }
+    .about-hello {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #facc15;
+      margin-bottom: 0.4rem;
+    }
+    .about-lede {
+      font-size: 1.1rem;
+      margin-bottom: 0.9rem;
+    }
+    .about-photo {
+      border-radius: 1.2rem;
+      overflow: hidden;
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.5);
+    }
+
+    /* Long-form copy */
+    .about-body {
+      max-width: 760px;
+      margin-top: 1.5rem;
+      font-size: 0.98rem;
+      color: #1f2933;
+    }
+    .about-body p {
+      margin-bottom: 1.1rem;
+    }
+
+    /* Gist box */
+    .gist-section {
+      margin-top: 2.5rem;
+    }
+    .gist-box {
+      margin-top: 1.2rem;
+      border-radius: 1.2rem;
+      border: 1px solid rgba(15, 23, 42, 0.1);
+      background: #fef9c3;
+      padding: 1.5rem 1.7rem;
+      display: grid;
+      gap: 0.8rem;
+    }
+    @media (min-width: 800px) {
+      .gist-box {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      }
+    }
+    .gist-heading {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+    .gist-item {
+      margin-bottom: 0.4rem;
+    }
+    .gist-label {
+      font-weight: 600;
+    }
+
+    /* Footer (simplified) */
+    footer {
+      border-top: 1px solid #e5e7eb;
+      background: #ffffff;
+      padding: 1.6rem 0;
+      font-size: 0.85rem;
+      color: #4b5563;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <nav>
+      <a href="index.html#hero">Basecamp</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="store.html">The Store</a>
+      <a href="blogs.html">Notes from the Field</a>
+      <a href="services.html">Services</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section-light about-hero">
+    <div class="container">
+      <div class="about-layout">
+        <div>
+          <div class="about-hello">Well, hello…</div>
+          <h1 class="section-heading">Who Is Joseph Moyer?</h1>
+          <p class="about-lede">
+            While exploring the far reaches of the internet, one of life’s big questions likely flashed across your mind:
+            <em>“Who is Joseph Moyer?”</em> Then, somehow, you ended up here in your relentless quest for answers. But don't stop now.
+            This entire website is dedicated to helping you learn as much as you want—followed by the closest thing to a support group once you’re finished.
+          </p>
+          <p class="section-intro">
+            Continue below for more. You have been warned.
+          </p>
+        </div>
+        <div class="about-photo">
+          <img src="assets/home/self portrait 01.png" alt="Portrait of Joseph Moyer holding a camera." />
+        </div>
+      </div>
+
+      <div class="about-body">
+        <h2 style="font-size:1.4rem; margin-top:1.75rem;">All About Me</h2>
+        <p>
+          I’m a photographer, writer, and projection mapping artist with a perfectly shaped bald head (or so I’m told) who
+          believes the world is full of small moments worth noticing—and occasionally worth laughing at. Whether I’m capturing a
+          sunrise that made me stop in my tracks, turning a blank wall into a galaxy of moving light, or stringing words together
+          until they become something that makes you pause, I’m here to help you find beauty, humor, and a fresh perspective in
+          the everyday.
+        </p>
+        <p>
+          If you’re curious about the guy behind the camera, I invite you to keep reading. And if you just want the gist, skip to
+          the bottom for a brief summary.
+        </p>
+        <p>
+          I’ve been called many things. The “coolest nerd ever” (possibly my mom), “crazy and obnoxious but still lovable,” and
+          even—true story—“an excellent service dog.” That last one came from a guy who said he always smiled when I entered the
+          room. I still don’t know whether to be flattered or concerned.
+        </p>
+        <p>
+          Whatever I am, I know this: I love a good story.
+        </p>
+        <p>
+          Everyone has one. Twins raised in the same home will still see the world differently. That’s the magic. And I spend a
+          lot of time trying to capture it—through photography, writing, video, and projection mapping. Whether it’s a sunrise, a
+          poem, or a glowing universe projected onto the side of a building, I try to make things that make people feel something
+          real.
+        </p>
+        <p>
+          I’ve been creating since I was a kid. Before the camera or keyboard, there were badly staged living room plays (sorry,
+          Mom and Dad), mock radio shows with my sister, and enough daydreaming to require my own spoiler alert system. I moved
+          on to capturing animals in the backyard with a camcorder and learned to tell stories with whatever tools I could get my
+          hands on.
+        </p>
+        <p>
+          Somewhere along the way, I added photography, writing, design, video, and light-based art to my toolbelt. The styles
+          change. The mediums evolve. But the heart of it—seeing the world with fresh eyes—has always stayed the same.
+        </p>
+        <p>
+          Now, thanks to this little corner of the internet, I get to share that work with you. So—thank you for being here. I
+          hope you find something that resonates, whether it’s a photo that brings you calm, a poem that stirs something up, or a
+          projection that makes you stop and wonder.
+        </p>
+        <p>
+          If you want to see what’s new, explore the site. If you want to support the project, check out the shop. And if none of
+          this is your thing… well, kindly lie to your friends and tell them I’m amazing.
+        </p>
+        <p style="font-size:0.9rem; opacity:0.8;">
+          <strong>(Disclaimer:</strong> I do not endorse lying. It’s a slippery slope that can end in serious injury and sometimes death.)
+        </p>
+      </div>
+
+      <div class="gist-section">
+        <div class="gist-box">
+          <div>
+            <div class="gist-heading">For Those Who Just Want the Gist</div>
+            <p>
+              Short version: I make things with light, words, and images because I love stories and the people who live them.
+              I’m here to help you see your world a little differently—sometimes quieter, sometimes brighter, always intentional.
+            </p>
+          </div>
+          <div>
+            <div class="gist-item">
+              <span class="gist-label">What Is Your Name?</span><br />
+              Joseph Moyer
+            </div>
+            <div class="gist-item">
+              <span class="gist-label">What Is Your Quest?</span><br />
+              To tell stories through photography, writing, and projection mapping.
+            </div>
+            <div class="gist-item">
+              <span class="gist-label">What Is Your Favorite Color?</span><br />
+              Yellow.
+            </div>
+            <div class="gist-item">
+              <span class="gist-label">What is the air-speed velocity of an unladen swallow?</span><br />
+              Well… that depends. African or European?
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:2.2rem; text-align:center;">
+        <a href="portfolio.html" class="btn btn-primary">Explore the Work</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © <span id="year"></span> The Joseph Moyer Project. All rights reserved.
+</footer>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
