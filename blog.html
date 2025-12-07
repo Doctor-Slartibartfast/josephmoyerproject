@@ -27,7 +27,7 @@
       padding: 0 1.25rem;
     }
 
-    /* HEADER (same pattern as index) */
+    /* HEADER (matches rest of site) */
     header {
       position: sticky;
       top: 0;
@@ -70,7 +70,6 @@
 
     main { padding-bottom: 3rem; }
 
-    /* SECTIONS */
     .page-hero {
       padding: 3rem 0 2.5rem;
       background: #020617;
@@ -92,60 +91,75 @@
       color: #cbd5f5;
     }
 
-    .content-section {
-      padding: 2.5rem 0 0;
+    /* POST LAYOUT */
+    .post {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.5);
       background: #020617;
     }
-
-    /* POST BLOCKS */
-    .post-block {
-      border-radius: 1.1rem;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: #020617;
-      padding: 1.4rem 1.5rem 1.5rem;
-      margin-bottom: 1.6rem;
+    .post:last-of-type {
+      border-bottom: none;
+      padding-bottom: 3rem;
     }
-    .post-kicker {
+    .post-header {
+      margin-bottom: 1rem;
+    }
+    .post-meta {
       font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: #9ca3af;
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.3rem;
     }
     .post-title {
-      margin: 0 0 0.4rem;
-      font-size: 1.25rem;
+      margin: 0 0 0.5rem;
+      font-size: 1.5rem;
       color: #f9fafb;
     }
-    .post-meta {
-      font-size: 0.8rem;
-      color: #9ca3af;
-      margin-bottom: 0.8rem;
+    .post-tagline {
+      margin: 0;
+      font-size: 0.98rem;
+      color: #cbd5f5;
     }
-    .post-body p {
-      margin: 0 0 0.85rem;
-      font-size: 0.95rem;
+    .post-hero-img {
+      margin-bottom: 1rem;
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+    }
+    .post-hero-img img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    .post-body {
+      font-size: 0.96rem;
       color: #e5e7eb;
     }
-    .post-anchor-link {
-      font-size: 0.8rem;
-      color: #facc15;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
+    .post-body p {
+      margin: 0 0 1rem;
     }
 
-    /* FOOTER (copied from index.html) */
+    .back-to-top {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+    }
+    .back-to-top a {
+      color: #facc15;
+    }
+    .back-to-top a:hover {
+      text-decoration: underline;
+    }
+
+    /* FOOTER (matches index.html) */
     footer {
       border-top: 1px solid #e5e7eb;
       background: #ffffff;
       padding: 2rem 0 1.5rem;
       font-size: 0.85rem;
       color: #4b5563;
-    }
-    .footer-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 1.25rem;
     }
     .footer-top {
       display: grid;
@@ -171,9 +185,7 @@
       color: #9ca3af;
       margin-bottom: 0.5rem;
     }
-    .footer-links,
-    .footer-legal,
-    .footer-social {
+    .footer-links, .footer-legal, .footer-social {
       display: flex;
       flex-direction: column;
       gap: 0.25rem;
@@ -198,7 +210,6 @@
 
     @media (min-width: 768px) {
       .footer-top {
-        max-width: 1120px;
         grid-template-columns: 1.4fr 2fr;
       }
       .footer-cols {
@@ -221,115 +232,162 @@
   </div>
 </header>
 
-<main>
-  <!-- Page Hero -->
+<main id="top">
+  <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="container">
-      <div class="section-subtitle">News &amp; Updates</div>
-      <h1>Notes from the Field</h1>
+      <div class="section-subtitle">Notes from the Field</div>
+      <h1>Stories Behind the Scenes</h1>
       <p class="page-intro">
-        The stories behind the images, the experiments, and the bigger projects in motion.
-        This is where I unpack what I’m learning, what I’m trying, and what’s coming next.
+        The place where I unpack the “why” behind the work—projection tests, writing thoughts,
+        creative experiments, and the small moments that quietly change everything.
       </p>
     </div>
   </section>
 
-  <section class="content-section">
+  <!-- POST 1: Projection Mapping -->
+  <section class="post" id="projection-mapping">
     <div class="container">
-
-      <!-- POST 1: Projection Mapping -->
-      <article class="post-block" id="projection-mapping">
-        <div class="post-kicker">Inspiration</div>
+      <div class="post-header">
+        <div class="post-meta">Inspiration · Projection Mapping</div>
         <h2 class="post-title">So… What Exactly Is Projection Mapping?</h2>
-        <div class="post-meta">Filed under: Light, Experiments, Big Ideas</div>
-        <div class="post-body">
-          <p>
-            At its simplest, projection mapping is this: taking a regular projector and convincing it to
-            behave like it understands the shape of the world.
-          </p>
-          <p>
-            Instead of just throwing a flat rectangle on a wall, you line things up so that the light wraps
-            around corners, follows edges, and lands exactly where you want it—on a cake, a building, a stage,
-            a hallway, or some quiet corner that suddenly matters a lot more.
-          </p>
-          <p>
-            I love it because it sits right between storytelling and technical problem-solving. You start
-            with a surface—smooth, crooked, textured, or wildly inconvenient—and ask: “What could this become
-            if light treated it like a canvas?” Then you build from there.
-          </p>
-          <p>
-            In the future, this space will hold process notes, behind-the-scenes shots, and maybe a few
-            “this almost went terribly wrong but didn’t” stories from live events. For now, think of this
-            as the marker in the ground that says: <em>more is coming.</em>
-          </p>
-        </div>
-        <div class="post-anchor-link">#projection-mapping</div>
-      </article>
+        <p class="post-tagline">
+          A simple explanation of the art form that lets light wrap around objects and turn
+          ordinary spaces into temporary stories.
+        </p>
+      </div>
 
-      <!-- POST 2: Everyone Has a Story -->
-      <article class="post-block" id="everyone-has-a-story">
-        <div class="post-kicker">Personal Journal</div>
+      <div class="post-hero-img">
+        <img src="assets/home/notes from the field - projection mapping.png"
+             alt="Colorful stage lights and projection imagery." />
+      </div>
+
+      <div class="post-body">
+        <p>
+          Projection mapping is what happens when a simple projector stops acting like a “big TV”
+          and starts behaving more like paint and light rolled into one. Instead of aiming at a flat
+          screen, we aim at real objects—walls, stages, buildings, or even wedding cakes—and tell the
+          projector: “See that shape? Wrap the story around that.”
+        </p>
+        <p>
+          The software lets me trace the physical surfaces, line by line, and then line up motion,
+          color, and imagery so it feels like the space itself is moving. Windows glow. Columns pulse.
+          A cake suddenly becomes a glowing sculpture with patterns and animations that feel alive.
+        </p>
+        <p>
+          At its best, projection mapping doesn’t just look cool—it makes people feel something. A
+          quiet corner becomes a focal point. A wall becomes a canvas. A room becomes a moment you
+          talk about on the way home.
+        </p>
+        <p>
+          If you’ve ever watched a space you know well suddenly look completely different for a few
+          minutes, that’s the feeling I’m chasing: familiar, but transformed.
+        </p>
+      </div>
+
+      <div class="back-to-top">
+        <a href="#top">Back to top</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- POST 2: Everyone Has a Story -->
+  <section class="post" id="everyone-has-a-story">
+    <div class="container">
+      <div class="post-header">
+        <div class="post-meta">Personal Journal · Writing</div>
         <h2 class="post-title">Everyone Has a Story</h2>
-        <div class="post-meta">Filed under: Writing, People, Perspective</div>
-        <div class="post-body">
-          <p>
-            One of my core beliefs is that no one is “background.” Even the person you pass once in a
-            grocery aisle has a life full of tiny, crucial moments—quiet wins, quiet losses, questions
-            they’re still carrying around.
-          </p>
-          <p>
-            That’s why I love photography and writing so much. A portrait is never just a face.
-            A landscape is never just a tree and some sky. A small interaction can be the turning point
-            in someone’s week, even if no one else notices.
-          </p>
-          <p>
-            With The Joseph Moyer Project, I’m trying to make work that remembers that. Images,
-            poems, and light-based pieces that nudge you to slow down for a second and ask:
-            <em>“What’s the story here?”</em>—in the scene, and in yourself.
-          </p>
-          <p>
-            If you see yourself in any of the work—great. That’s the point. Everyone has a story.
-            I’m just trying to make a few of them visible for a moment.
-          </p>
-        </div>
-        <div class="post-anchor-link">#everyone-has-a-story</div>
-      </article>
+        <p class="post-tagline">
+          A few thoughts on why I’m so drawn to people’s inner worlds—and how that spills into
+          photos, writing, and light.
+        </p>
+      </div>
 
-      <!-- POST 3: Welcome -->
-      <article class="post-block" id="welcome">
-        <div class="post-kicker">Update</div>
+      <div class="post-hero-img">
+        <img src="assets/home/notes from the field - stories.png"
+             alt="Notebook, pen, and creative storytelling imagery." />
+      </div>
+
+      <div class="post-body">
+        <p>
+          One of my core beliefs is that everyone carries a story that’s bigger than what you see in
+          passing. The person on the train, the barista, the neighbor walking their dog—each one has
+          a full history of hopes, disappointments, inside jokes, quiet victories, and conversations
+          that changed everything.
+        </p>
+        <p>
+          That’s why I’m drawn to storytelling in so many forms. A photograph isn’t just a nice sky;
+          it’s a moment when someone finally took a breath. A projection isn’t just colors on a wall;
+          it’s a feeling wrapped in motion. A poem isn’t just lines—it’s everything that didn’t fit
+          into a normal sentence.
+        </p>
+        <p>
+          When I’m creating, I’m usually thinking about the person on the other side of it. What do
+          they need today? Calm? Spark? Encouragement? A reminder that the world is still quietly
+          beautiful even when everything feels loud?
+        </p>
+        <p>
+          The Joseph Moyer Project exists because I want people to feel seen, even if I never meet
+          them. If something on this site makes you pause for a second and feel just a little more
+          grounded or understood—that’s the story doing its job.
+        </p>
+      </div>
+
+      <div class="back-to-top">
+        <a href="#top">Back to top</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- POST 3: Welcome / Origin -->
+  <section class="post" id="welcome">
+    <div class="container">
+      <div class="post-header">
+        <div class="post-meta">Update · Origin Story</div>
         <h2 class="post-title">Welcome to The Joseph Moyer Project</h2>
-        <div class="post-meta">Filed under: Site News, New Beginnings</div>
-        <div class="post-body">
-          <p>
-            This site is a bit of an experiment—in the best way. It’s part portfolio, part
-            sketchbook, part “here’s what I’m working on and wondering about.”
-          </p>
-          <p>
-            You’ll find photography, creative writing, projection mapping, and design work
-            living side by side. Different mediums, same goal: tell stories through
-            words, images, and light.
-          </p>
-          <p>
-            Over time, this section will collect updates about new projects, event recaps,
-            experiments that worked (and some that didn’t), and ways you can get involved—
-            whether that’s commissioning a piece, booking a session, or just sharing something
-            that resonated with you.
-          </p>
-          <p>
-            For now, thanks for being here. Explore, wander, and if something sticks with you,
-            I’d love to hear about it.
-          </p>
-        </div>
-        <div class="post-anchor-link">#welcome</div>
-      </article>
+        <p class="post-tagline">
+          How this whole experiment started—and what I hope you find while you’re here.
+        </p>
+      </div>
 
+      <div class="post-hero-img">
+        <img src="assets/home/notes from the field - thejosephmoyerproject.png"
+             alt="The Joseph Moyer Project brand artwork." />
+      </div>
+
+      <div class="post-body">
+        <p>
+          The Joseph Moyer Project began as a very simple idea: gather everything I create—photos,
+          writing, projection mapping, design—and give it one home. One place where all the threads
+          could live side by side instead of scattered across hard drives, notebooks, and random
+          apps.
+        </p>
+        <p>
+          Over time, it became more than a portfolio. It turned into a kind of basecamp: a place to
+          launch experiments, share in-progress ideas, and invite people into the process instead of
+          just showing the polished final result.
+        </p>
+        <p>
+          You’ll find a little bit of everything here: quiet nature scenes, city corners, poems,
+          projection tests, and pieces that don’t fully fit into any category. That’s on purpose.
+          Creativity rarely stays in one lane, and I don’t really want it to.
+        </p>
+        <p>
+          Whether you’re here to browse, buy a print, book a project, or just explore, I’m glad you
+          found your way to this corner of the internet. Feel free to wander, follow whatever
+          catches your eye, and reach out if something sparks an idea.
+        </p>
+      </div>
+
+      <div class="back-to-top">
+        <a href="#top">Back to top</a>
+      </div>
     </div>
   </section>
 </main>
 
 <footer>
-  <div class="footer-inner">
+  <div class="container">
     <div class="footer-top">
       <div>
         <div class="footer-brand-title">THE JOSEPH MOYER PROJECT</div>
