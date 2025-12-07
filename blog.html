@@ -27,6 +27,7 @@
       padding: 0 1.25rem;
     }
 
+    /* HEADER (same pattern as index) */
     header {
       position: sticky;
       top: 0;
@@ -69,6 +70,7 @@
 
     main { padding-bottom: 3rem; }
 
+    /* SECTIONS */
     .page-hero {
       padding: 3rem 0 2.5rem;
       background: #020617;
@@ -90,58 +92,288 @@
       color: #cbd5f5;
     }
 
-    .post-list {
-      margin-top: 1.8rem;
-      display: grid;
-      gap: 1.2rem;
-    }
-    .post-card {
-      border-radius: 1.1rem;
+    .content-section {
+      padding: 2.5rem 0 0;
       background: #020617;
+    }
+
+    /* POST BLOCKS */
+    .post-block {
+      border-radius: 1.1rem;
       border: 1px solid rgba(148, 163, 184, 0.6);
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
+      background: #020617;
+      padding: 1.4rem 1.5rem 1.5rem;
+      margin-bottom: 1.6rem;
     }
-    @media (max-width: 768px) {
-      .post-card {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-    .post-card img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-    }
-    .post-card-body {
-      padding: 1rem 1.1rem 1.1rem;
-    }
-    .post-meta {
+    .post-kicker {
       font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: #9ca3af;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.2rem;
     }
-    .post-card-title {
-      margin: 0 0 0.35rem;
-      font-size: 1.1rem;
+    .post-title {
+      margin: 0 0 0.4rem;
+      font-size: 1.25rem;
       color: #f9fafb;
     }
-    .post-card-excerpt {
-      margin: 0 0 0.9rem;
-      font-size: 0.9rem;
-      color: #cbd5f5;
+    .post-meta {
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-bottom: 0.8rem;
     }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.45rem 1.3rem;
-      border-radius: 999px;
+    .post-body p {
+      margin: 0 0 0.85rem;
+      font-size: 0.95rem;
+      color: #e5e7eb;
+    }
+    .post-anchor-link {
+      font-size: 0.8rem;
+      color: #facc15;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    /* FOOTER (copied from index.html) */
+    footer {
+      border-top: 1px solid #e5e7eb;
+      background: #ffffff;
+      padding: 2rem 0 1.5rem;
+      font-size: 0.85rem;
+      color: #4b5563;
+    }
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+    .footer-top {
+      display: grid;
+      gap: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+    .footer-brand-title {
+      font-size: 0.95rem;
       font-weight: 600;
-      font-size: 0.86rem;
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: transform 0.12s ease, box-shadow 0.12s ease,
-        background-color 0.12s ease, color 0.12s e
+      color: #111827;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    .footer-cols {
+      display: grid;
+      gap: 1.75rem;
+    }
+    .footer-heading {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #9ca3af;
+      margin-bottom: 0.5rem;
+    }
+    .footer-links,
+    .footer-legal,
+    .footer-social {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .footer-links a,
+    .footer-legal a,
+    .footer-social a {
+      color: #4b5563;
+    }
+    .footer-links a:hover,
+    .footer-legal a:hover,
+    .footer-social a:hover {
+      color: #111827;
+    }
+    .footer-bottom {
+      border-top: 1px solid #e5e7eb;
+      padding-top: 0.8rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    @media (min-width: 768px) {
+      .footer-top {
+        max-width: 1120px;
+        grid-template-columns: 1.4fr 2fr;
+      }
+      .footer-cols {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <nav>
+      <a href="index.html#hero">Basecamp</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="index.html#store">The Store</a>
+      <a href="blog.html">Notes from the Field</a>
+      <a href="services.html">Services</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-subtitle">News &amp; Updates</div>
+      <h1>Notes from the Field</h1>
+      <p class="page-intro">
+        The stories behind the images, the experiments, and the bigger projects in motion.
+        This is where I unpack what I’m learning, what I’m trying, and what’s coming next.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+
+      <!-- POST 1: Projection Mapping -->
+      <article class="post-block" id="projection-mapping">
+        <div class="post-kicker">Inspiration</div>
+        <h2 class="post-title">So… What Exactly Is Projection Mapping?</h2>
+        <div class="post-meta">Filed under: Light, Experiments, Big Ideas</div>
+        <div class="post-body">
+          <p>
+            At its simplest, projection mapping is this: taking a regular projector and convincing it to
+            behave like it understands the shape of the world.
+          </p>
+          <p>
+            Instead of just throwing a flat rectangle on a wall, you line things up so that the light wraps
+            around corners, follows edges, and lands exactly where you want it—on a cake, a building, a stage,
+            a hallway, or some quiet corner that suddenly matters a lot more.
+          </p>
+          <p>
+            I love it because it sits right between storytelling and technical problem-solving. You start
+            with a surface—smooth, crooked, textured, or wildly inconvenient—and ask: “What could this become
+            if light treated it like a canvas?” Then you build from there.
+          </p>
+          <p>
+            In the future, this space will hold process notes, behind-the-scenes shots, and maybe a few
+            “this almost went terribly wrong but didn’t” stories from live events. For now, think of this
+            as the marker in the ground that says: <em>more is coming.</em>
+          </p>
+        </div>
+        <div class="post-anchor-link">#projection-mapping</div>
+      </article>
+
+      <!-- POST 2: Everyone Has a Story -->
+      <article class="post-block" id="everyone-has-a-story">
+        <div class="post-kicker">Personal Journal</div>
+        <h2 class="post-title">Everyone Has a Story</h2>
+        <div class="post-meta">Filed under: Writing, People, Perspective</div>
+        <div class="post-body">
+          <p>
+            One of my core beliefs is that no one is “background.” Even the person you pass once in a
+            grocery aisle has a life full of tiny, crucial moments—quiet wins, quiet losses, questions
+            they’re still carrying around.
+          </p>
+          <p>
+            That’s why I love photography and writing so much. A portrait is never just a face.
+            A landscape is never just a tree and some sky. A small interaction can be the turning point
+            in someone’s week, even if no one else notices.
+          </p>
+          <p>
+            With The Joseph Moyer Project, I’m trying to make work that remembers that. Images,
+            poems, and light-based pieces that nudge you to slow down for a second and ask:
+            <em>“What’s the story here?”</em>—in the scene, and in yourself.
+          </p>
+          <p>
+            If you see yourself in any of the work—great. That’s the point. Everyone has a story.
+            I’m just trying to make a few of them visible for a moment.
+          </p>
+        </div>
+        <div class="post-anchor-link">#everyone-has-a-story</div>
+      </article>
+
+      <!-- POST 3: Welcome -->
+      <article class="post-block" id="welcome">
+        <div class="post-kicker">Update</div>
+        <h2 class="post-title">Welcome to The Joseph Moyer Project</h2>
+        <div class="post-meta">Filed under: Site News, New Beginnings</div>
+        <div class="post-body">
+          <p>
+            This site is a bit of an experiment—in the best way. It’s part portfolio, part
+            sketchbook, part “here’s what I’m working on and wondering about.”
+          </p>
+          <p>
+            You’ll find photography, creative writing, projection mapping, and design work
+            living side by side. Different mediums, same goal: tell stories through
+            words, images, and light.
+          </p>
+          <p>
+            Over time, this section will collect updates about new projects, event recaps,
+            experiments that worked (and some that didn’t), and ways you can get involved—
+            whether that’s commissioning a piece, booking a session, or just sharing something
+            that resonated with you.
+          </p>
+          <p>
+            For now, thanks for being here. Explore, wander, and if something sticks with you,
+            I’d love to hear about it.
+          </p>
+        </div>
+        <div class="post-anchor-link">#welcome</div>
+      </article>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-title">THE JOSEPH MOYER PROJECT</div>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <div class="footer-heading">Navigate</div>
+          <div class="footer-links">
+            <a href="index.html#hero">Basecamp</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="index.html#store">The Store</a>
+            <a href="blog.html">Notes from the Field</a>
+            <a href="services.html">Services</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Connect</div>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/josephmoyer/" target="_blank" rel="noreferrer">Instagram</a>
+            <a href="https://www.facebook.com/thejosephmoyerproject" target="_blank" rel="noreferrer">Facebook</a>
+            <a href="https://www.linkedin.com/in/josephmoyer/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="https://open.spotify.com/user/thedoctor042" target="_blank" rel="noreferrer">Spotify</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">Legal</div>
+          <div class="footer-legal">
+            <a href="terms.html">Terms of Use</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="shipping.html">Shipping Policy</a>
+            <a href="refund.html">Refund Policy</a>
+            <a href="accessibility.html">Accessibility</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © <span id="year"></span> The Joseph Moyer Project. All rights reserved.
+    </div>
+  </div>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</footer>
+
+</body>
+</html>
