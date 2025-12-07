@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Store – The Joseph Moyer Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Browse prints, poem prints, and design pieces from The Joseph Moyer Project."
+  />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0b1120;
+      color: #111827;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* HEADER (aligned with index.html, but with Store as its own page) */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(15, 23, 42, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.5);
+    }
+    .header-inner {
+      display: flex;
+      justify-content: center;
+      padding: 0.9rem 0.5rem;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.8rem;
+      font-size: 0.9rem;
+    }
+    nav a {
+      position: relative;
+      color: #e5e7eb;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.8rem;
+      padding: 0.15rem 0.4rem;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.25rem;
+      width: 0;
+      height: 1px;
+      background: #facc15;
+      transition: width 0.16s ease;
+    }
+    nav a:hover::after { width: 100%; }
+    @media (max-width: 640px) {
+      nav { gap: 0.8rem; }
+    }
+
+    main { padding-bottom: 3rem; }
+
+    /* SECTION STYLES */
+    section { padding: 3rem 0; }
+    .section-light {
+      background: #f5f5f7;
+      color: #111827;
+    }
+    .section-dark {
+      background: #020617;
+      color: #e5e7eb;
+    }
+    .section-subtitle {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-bottom: 0.3rem;
+      opacity: 0.8;
+    }
+    .section-heading {
+      font-size: 1.8rem;
+      margin: 0 0 0.6rem;
+    }
+    .section-intro {
+      max-width: 700px;
+      font-size: 0.96rem;
+      color: #4b5563;
+    }
+    .section-dark .section-intro {
+      color: #cbd5f5;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 60vh;
+      background-image: url("assets/home/storefront.png");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #f9fafb;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      padding: 2.5rem 1.5rem;
+      max-width: 720px;
+    }
+    .hero-logo-text {
+      font-family: "Audiowide", "Space Grotesk", system-ui, sans-serif;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      font-size: clamp(1.1rem, 2.1vw, 1.6rem);
+      margin-bottom: 0.4rem;
+    }
+    .hero-heading {
+      font-size: clamp(1.7rem, 2.6vw, 2.2rem);
+      margin: 0 0 0.6rem;
+    }
+    .hero-tagline {
+      font-size: clamp(1rem, 1.9vw, 1.3rem);
+      color: #fef9c3;
+      margin-bottom: 1.6rem;
+    }
+    .hero-note {
+      font-size: 0.9rem;
+      max-width: 640px;
+      margin: 0 auto;
+      color: #e5e7eb;
+      opacity: 0.9;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease,
+        background-color 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: #facc15;
+      color: #111827;
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.35);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 32px rgba(15, 23, 42, 0.45);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: #f9fafb;
+      border-color: #facc15;
+    }
+    .btn-secondary:hover { background: rgba(250, 204, 21, 0.15); }
+
+    /* GRID */
+    .grid {
+      display: grid;
+      gap: 1.4rem;
+      margin-top: 1.75rem;
+    }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    @media (max-width: 1024px) {
+      .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 768px) {
+      .grid-3,
+      .grid-2 { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    /* PRODUCT CARDS */
+    .product-card {
+      border-radius: 1rem;
+      overflow: hidden;
+      background: #ffffff;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.12);
+    }
+    .section-dark .product-card {
+      background: #020617;
+      border-color: rgba(148, 163, 184, 0.7);
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.6);
+    }
+    .product-image {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: linear-gradient(135deg, #1f2937, #020617);
+      overflow: hidden;
+    }
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .product-body {
+      padding: 0.9rem 1rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .product-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0;
+    }
+    .product-meta {
+      font-size: 0.82rem;
+      color: #6b7280;
+    }
+    .section-dark .product-meta {
+      color: #9ca3af;
+    }
+    .product-desc {
+      font-size: 0.9rem;
+      color: #4b5563;
+      margin: 0 0 0.4rem;
+    }
+    .section-dark .product-desc {
+      color: #cbd5f5;
+    }
+    .product-footer {
+      margin-top: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .product-price {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 0.15rem 0.6rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .badge-metal {
+      background: #111827;
+      color: #facc15;
+    }
+    .badge-poem {
+      background: #fef9c3;
+      color: #92400e;
+    }
+
+    /* FOOTER (copied from index.html for consistency) */
+    footer {
+      border-top: 1px solid #e5e7eb;
+      background: #ffffff;
+      padding: 2rem 0 1.5rem;
+      font-size: 0.85rem;
+      color: #4b5563;
+    }
+    .footer-top {
+      display: grid;
+      gap: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+    .footer-brand-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #111827;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    .footer-cols {
+      display: grid;
+      gap: 1.75rem;
+    }
+    .footer-heading {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #9ca3af;
+      margin-bottom: 0.5rem;
+    }
+    .footer-links,
+    .footer-legal,
+    .footer-social {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .footer-links a,
+    .footer-legal a,
+    .footer-social a {
+      color: #4b5563;
+    }
+    .footer-links a:hover,
+    .footer-legal a:hover,
+    .footer-social a:hover {
+      color: #111827;
+    }
+    .footer-bottom {
+      border-top: 1px solid #e5e7eb;
+      padding-top: 0.8rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    @media (min-width: 768px) {
+      .footer-top {
+        grid-template-columns: 1.4fr 2fr;
+      }
+      .footer-cols {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner">
+      <nav>
+        <a href="index.html#hero">Basecamp</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="store.html">The Store</a>
+        <a href="blog.html">Notes from the Field</a>
+        <a href="services.html">Services</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-logo-text">THE JOSEPH MOYER PROJECT</div>
+        <h1 class="hero-heading">The Store</h1>
+        <p class="hero-tagline">Prints, poems, and designs to bring a little more light into your space.</p>
+        <p class="hero-note">
+          Each piece is made to order through a trusted print partner. Start with the metal prints below,
+          or explore poems and design work as those collections grow.
+        </p>
+      </div>
+    </section>
+
+    <!-- METAL PRINTS -->
+    <section class="section-light" id="metal-prints">
+      <div class="container">
+        <div class="section-subtitle">Featured Collection</div>
+        <h2 class="section-heading">Metal Prints</h2>
+        <p class="section-intro">
+          Bold, vivid, and ready to hang. These metal prints are built for the walls that matter—your office,
+          your living room, or that one corner that’s been quietly begging for something special.
+        </p>
+
+        <div class="grid grid-3">
+          <!-- PRODUCT 1 -->
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/store/metal-01.jpg" alt="Metal print sample 1" />
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Title of Print #1</h3>
+              <div class="product-meta">
+                <span class="badge badge-metal">Metal Print</span>
+                &nbsp;· 16×20 in
+              </div>
+              <p class="product-desc">
+                Short description here—what this image feels like or why you might want it in your space.
+              </p>
+              <div class="product-footer">
+                <span class="product-price">$175</span>
+                <!-- Replace # with your Printful / storefront URL -->
+                <a href="#" class="btn btn-primary" target="_blank" rel="noreferrer">View &amp; Purchase</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCT 2 -->
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/store/metal-02.jpg" alt="Metal print sample 2" />
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Title of Print #2</h3>
+              <div class="product-meta">
+                <span class="badge badge-metal">Metal Print</span>
+                &nbsp;· 16×20 in
+              </div>
+              <p class="product-desc">
+                Another short description—think mood, moment, or where it was captured.
+              </p>
+              <div class="product-footer">
+                <span class="product-price">$175</span>
+                <a href="#" class="btn btn-primary" target="_blank" rel="noreferrer">View &amp; Purchase</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCT 3 -->
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/store/metal-03.jpg" alt="Metal print sample 3" />
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Title of Print #3</h3>
+              <div class="product-meta">
+                <span class="badge badge-metal">Metal Print</span>
+                &nbsp;· 16×20 in
+              </div>
+              <p class="product-desc">
+                Describe the feeling: calm, adventurous, moody, hopeful, etc.
+              </p>
+              <div class="product-footer">
+                <span class="product-price">$175</span>
+                <a href="#" class="btn btn-primary" target="_blank" rel="noreferrer">View &amp; Purchase</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCT 4 -->
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/store/metal-04.jpg" alt="Metal print sample 4" />
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Title of Print #4</h3>
+              <div class="product-meta">
+                <span class="badge badge-metal">Metal Print</span>
+                &nbsp;· 16×20 in
+              </div>
+              <p class="product-desc">
+                You can keep these descriptions short and human—1–2 sentences is plenty.
+              </p>
+              <div class="product-footer">
+                <span class="product-price">$175</span>
+                <a href="#" class="btn btn-primary" target="_blank" rel="noreferrer">View &amp; Purchase</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCT 5 -->
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/store/metal-05.jpg" alt="Metal print sample 5" />
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Title of Print #5</h3>
+              <div class="product-meta">
+                <span class="badge badge-metal">Metal Print</span>
+                &nbsp;· 16×20 in
+              </div>
+              <p class="product-desc">
+                Swap these placeholders with your actual favorites—the pieces you want people to start with.
+              </p>
+              <div class="product-footer">
+                <span class="product-price">$175</span>
+                <a href="#" class="btn btn-primary" target="_blank" rel="noreferrer">View &amp; Purchase</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCT 6 -->
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/store/metal-06.jpg" alt="Metal print sample 6" />
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Title of Print #6</h3>
+              <div class="product-meta">
+                <span class="badge badge-metal">Metal Print</span>
+                &nbsp;· 16×20 in
+              </div>
+              <p class="product-desc">
+                If a piece ties into a story or blog post, you can mention that here later.
+              </p>
+              <div class="product-footer">
+                <span class="product-price">$175</span>
+                <a href="#" class="btn btn-primary" target="_blank" rel="noreferrer">View &amp; Purchase</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCT 7 -->
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/store/metal-07.jpg" alt="Metal print sample 7" />
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Title of Print #7</h3>
+              <div class="product-meta">
+                <span class="badge badge-metal">Metal Print</span>
+                &nbsp;· 16×20 in
+              </div>
+              <p class="product-desc">
+                You can always change sizes and prices later—this is just your starting collection.
+              </p>
+              <div class="product-footer">
+                <span class="product-price">$175</span>
+                <a href="#" class="btn btn-primary" target="_blank" rel="noreferrer">View &amp; Purchase</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCT 8 -->
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/store/metal-08.jpg" alt="Metal print sample 8" />
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Title of Print #8</h3>
+              <div class="product-meta">
+                <span class="badge badge-metal">Metal Print</span>
+                &nbsp;· 16×20 in
+              </div>
+              <p class="product-desc">
+                Example: “A quiet stretch of shoreline for the days you want your walls to breathe.”
+              </p>
+              <div class="product-footer">
+                <span class="product-price">$175</span>
+                <a href="#" class="btn btn-primary" target="_blank" rel="noreferrer">View &amp; Purchase</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCT 9 -->
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/store/metal-09.jpg" alt="Metal print sample 9" />
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Title of Print #9</h3>
+              <div class="product-meta">
+                <span class="badge badge-metal">Metal Print</span>
+                &nbsp;· 16×20 in
+              </div>
+              <p class="product-desc">
+                Example: “For anyone who needs a reminder that small moments are still huge.”
+              </p>
+              <div class="product-footer">
+                <span class="product-price">$175</span>
+                <a href="#" class="btn btn-primary" target="_blank" rel="noreferrer">View &amp; Purchase</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCT 10 -->
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/store/metal-10.jpg" alt="Metal print sample 10" />
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Title of Print #10</h3>
+              <div class="product-meta">
+                <span class="badge badge-metal">Metal Print</span>
+                &nbsp;· 16×20 in
+              </div>
+              <p class="product-desc">
+                Example: “A burst of color for the wall that refuses to be boring.”
+              </p>
+              <div class="product-footer">
+                <span class="product-price">$175</span>
+                <a href="#" class="btn btn-primary" target="_blank" rel="noreferrer">View &amp; Purchase</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCT 11 -->
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/store/metal-11.jpg" alt="Metal print sample 11" />
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Title of Print #11</h3>
+              <div class="product-meta">
+                <span class="badge badge-metal">Metal Print</span>
+                &nbsp;· 16×20 in
+              </div>
+              <p class="product-desc">
+                Example: “The one you put where you want people to stop and look twice.”
+              </p>
+              <div class="product-footer">
+                <span class="product-price">$175</span>
+                <a href="#" class="btn btn-primary" target="_blank" rel="noreferrer">View &amp; Purchase</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- POEMS & OTHER -->
+    <section class="section-dark" id="poems-design">
+      <div class="container">
+        <div class="section-subtitle">Coming Soon</div>
+        <h2 class="section-heading">Poem Prints &amp; Design Pieces</h2>
+        <p class="section-intro">
+          Soon you’ll find custom poem prints, design-forward pieces, and other experiments here—things that live
+          somewhere between writing, photography, and light.
+        </p>
+
+        <div class="grid grid-2">
+          <article class="product-card">
+            <div class="product-body">
+              <h3 class="product-title">Poem Prints</h3>
+              <div class="product-meta">
+                <span class="badge badge-poem">Poem Print</span> · Digital &amp; physical
+              </div>
+              <p class="product-desc">
+                Printed words built around a person, memory, or moment. These will be listed here once the first
+                collection is ready for the world.
+              </p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-body">
+              <h3 class="product-title">Design Experiments</h3>
+              <p class="product-desc">
+                Poster-style pieces, projection-inspired visuals, and other one-off creations.
+                This section is reserved for the projects that don’t fit in a neat category yet.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-title">THE JOSEPH MOYER PROJECT</div>
+        </div>
+        <div class="footer-cols">
+          <div>
+            <div class="footer-heading">Navigate</div>
+            <div class="footer-links">
+              <a href="index.html#hero">Basecamp</a>
+              <a href="portfolio.html">Portfolio</a>
+              <a href="store.html">The Store</a>
+              <a href="blog.html">Notes from the Field</a>
+              <a href="services.html">Services</a>
+            </div>
+          </div>
+          <div>
+            <div class="footer-heading">Connect</div>
+            <div class="footer-social">
+              <a href="https://www.instagram.com/josephmoyer/" target="_blank" rel="noreferrer">Instagram</a>
+              <a href="https://www.facebook.com/thejosephmoyerproject" target="_blank" rel="noreferrer">Facebook</a>
+              <a href="https://www.linkedin.com/in/josephmoyer/" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a href="https://open.spotify.com/user/thedoctor042" target="_blank" rel="noreferrer">Spotify</a>
+            </div>
+          </div>
+          <div>
+            <div class="footer-heading">Legal</div>
+            <div class="footer-legal">
+              <a href="terms.html">Terms of Use</a>
+              <a href="privacy.html">Privacy Policy</a>
+              <a href="shipping.html">Shipping Policy</a>
+              <a href="refund.html">Refund Policy</a>
+              <a href="accessibility.html">Accessibility</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © <span id="year"></span> The Joseph Moyer Project. All rights reserved.
+      </div>
+    </div>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </footer>
+
+</body>
+</html>
