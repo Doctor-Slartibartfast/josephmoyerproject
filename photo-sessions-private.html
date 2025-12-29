@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Photo Sessions – The Joseph Moyer Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Private photo session services by The Joseph Moyer Project."
+  />
+  <link rel="icon" href="/Assets/Home/fav01.png" />
+  <link rel="canonical" href="/photo-sessions-private.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Photo Sessions – The Joseph Moyer Project" />
+  <meta property="og:description" content="Private photo session services by The Joseph Moyer Project." />
+  <meta property="og:url" content="/photo-sessions-private.html" />
+  <meta property="og:image" content="/Assets/Home/fav01.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Photo Sessions – The Joseph Moyer Project" />
+  <meta name="twitter:description" content="Private photo session services by The Joseph Moyer Project." />
+  <meta name="twitter:image" content="/Assets/Home/fav01.png" />
+  <meta name="theme-color" content="#0b1120" />
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "url":"/",
+    "name":"The Joseph Moyer Project",
+    "description":"Photography, writing, projection mapping, and design."
+  }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      background: #0b1120;
+      color: #111827;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* HEADER (same as index) */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(15, 23, 42, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(148,163,184,0.45);
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 0;
+    }
+    nav a {
+      color: #e5e7eb;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      position: relative;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -0.25rem;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #facc15;
+      transition: width 0.16s ease;
+    }
+    nav a:hover::after { width: 100%; }
+
+    /* SECTIONS */
+    section { padding: 3.5rem 0; }
+    .section-light { background: #f5f5f7; color: #111827; }
+    .section-dark { background: #020617; color: #e5e7eb; }
+
+    .section-subtitle {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0.8;
+      margin-bottom: 0.4rem;
+    }
+    .section-heading {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .section-intro {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    /* LAYOUT */
+    .flex-layout {
+      display: flex;
+      gap: 3rem;
+      align-items: flex-start;
+    }
+    .flex-2 > * { flex: 1; }
+    .flip { flex-direction: row-reverse; }
+
+    @media (max-width: 768px) {
+      .flex-layout { flex-direction: column; gap: 2rem; }
+      .flip { flex-direction: column; }
+    }
+
+    /* PRICING */
+    .pricing-grid {
+      display: grid;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .cols-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+    .pricing-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: border-color 0.2s;
+    }
+    .section-light .pricing-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+    }
+
+    .pricing-card h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .price-tag {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #facc15;
+      margin-bottom: 1rem;
+    }
+    .pricing-card p { margin: 0.5rem 0; }
+    .pricing-card ul {
+      margin: 0.5rem 0;
+      padding-left: 1.5rem;
+    }
+    .pricing-card li { margin: 0.25rem 0; }
+    .meta-note {
+      font-size: 0.85rem;
+      opacity: 0.7;
+      margin-top: 0.5rem;
+    }
+
+    /* FORMS */
+    form {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+    .section-light form {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+    }
+
+    form div { margin-bottom: 1rem; }
+    label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+      font-size: 0.9rem;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 4px;
+      background: rgba(255,255,255,0.05);
+      color: inherit;
+      font-family: inherit;
+    }
+    .section-light input,
+    .section-light textarea {
+      background: #fff;
+      border: 1px solid #d1d5db;
+      color: #111827;
+    }
+    textarea { resize: vertical; min-height: 100px; }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-block;
+      padding: 0.65rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: 0.2s;
+    }
+    .btn-primary {
+      background: #facc15;
+      color: #111827;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent;
+      color: #facc15;
+      border-color: #facc15;
+    }
+    .btn-outline:hover { background: rgba(250,204,21,0.15); }
+
+    /* FOOTER */
+    .section-footer {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .small-note {
+      font-size: 0.85rem;
+      opacity: 0.7;
+      margin-top: 0.5rem;
+    }
+
+    /* PASSWORD PROTECTION */
+    .password-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(11, 18, 32, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .password-form {
+      background: #020617;
+      border: 1px solid rgba(250, 204, 21, 0.3);
+      border-radius: 8px;
+      padding: 2rem;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+    }
+    .password-form h2 {
+      color: #facc15;
+      margin-bottom: 1rem;
+    }
+    .password-form input {
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="password-overlay" class="password-overlay">
+    <div class="password-form">
+      <h2>Private Access Required</h2>
+      <p>Please enter the password to access this page.</p>
+      <input type="password" id="password-input" placeholder="Enter password" />
+      <button class="btn btn-primary" onclick="checkPassword()">Access Page</button>
+    </div>
+  </div>
+
+  <div id="main-content" style="display: none;">
+    <!-- HEADER -->
+    <header>
+      <nav>
+        <a href="index.html">Basecamp</a>
+        <a href="about.html">About</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="blog.html">Notes from the Field</a>
+        <a href="spotify.html">Soundtracks</a>
+        <a href="services.html">Services</a>
+        <a href="https://thejosephmoyerproject.printful.me/">The Store</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- PAGE TITLE -->
+      <section class="section-dark">
+        <div class="container">
+          <div class="section-subtitle">Photography</div>
+          <h1 class="section-heading">Photo Sessions</h1>
+          <p class="section-intro">
+            I don't just take pictures—I capture the moment that made the day.
+            Whether you need updated portraits, content for your brand, or just want to feel seen,
+            these sessions are designed for real people who want real quality.
+          </p>
+        </div>
+      </section>
+
+      <!-- PRIVATE PRICING -->
+      <section class="section-light" id="photo">
+        <div class="container flex-layout flex-2">
+          <div>
+            <div class="pricing-grid cols-2">
+              <div class="pricing-card">
+                <h3>Event Photography</h3>
+                <div class="price-tag">Base Packages</div>
+                <p>Mini Event (1 hour) – <strong>$175</strong></p>
+                <p>Standard Event (2 hours) – <strong>$300</strong></p>
+                <p>Half-Day (4 hours) – <strong>$550</strong></p>
+                <p>Full-Day (8 hours) – <strong>$1,000</strong></p>
+                <p class="meta-note">Includes:</p>
+                <ul>
+                  <li>Full-resolution edited photos</li>
+                  <li>Online gallery</li>
+                  <li>Print purchase options</li>
+                </ul>
+                <p class="meta-note">Add-Ons:</p>
+                <ul>
+                  <li>+$50 per additional 30 minutes</li>
+                  <li>+$75 travel outside 30 miles</li>
+                  <li>+$100 priority editing</li>
+                  <li>+$150 small slideshow (2–3 minutes)</li>
+                </ul>
+                <hr />
+                <form name="event-inquiry" method="POST" data-netlify="true">
+                  <input type="hidden" name="form-name" value="event-inquiry" />
+                  <input type="hidden" name="service" value="Event Photography" />
+                  <div>
+                    <label for="ev-name">Name</label>
+                    <input id="ev-name" name="name" required />
+                  </div>
+                  <div>
+                    <label for="ev-email">Email</label>
+                    <input id="ev-email" name="email" type="email" required />
+                  </div>
+                  <div>
+                    <label for="ev-message">Details</label>
+                    <textarea id="ev-message" name="message" placeholder="Date, location, guest estimate, and any requests."></textarea>
+                  </div>
+                  <button class="btn btn-primary" type="submit">Request Event Quote</button>
+                </form>
+              </div>
+
+              <div class="pricing-card">
+                <h3>💍 Wedding Photography</h3>
+                <div class="price-tag">Base Packages</div>
+                <p>Elopement (2 hours) – <strong>$600</strong></p>
+                <p>Half-Day Wedding (4 hours) – <strong>$1,200</strong></p>
+                <p>Full Wedding (8 hours) – <strong>$2,000</strong></p>
+                <p class="meta-note">Weddings are premium because of emotional weight, editing workload, and responsibility.</p>
+                <p class="meta-note">Includes:</p>
+                <ul>
+                  <li>Edited gallery</li>
+                  <li>Highlight slideshow</li>
+                  <li>Print purchase access</li>
+                </ul>
+                <p class="meta-note">Add-Ons:</p>
+                <ul>
+                  <li>+$300 Second photographer</li>
+                  <li>+$200 Engagement mini session</li>
+                  <li>+$100 per extra hour</li>
+                  <li>+$250 Keepsake slideshow (5–7 minutes)</li>
+                </ul>
+                <hr />
+                <form name="wedding-inquiry" method="POST" data-netlify="true">
+                  <input type="hidden" name="form-name" value="wedding-inquiry" />
+                  <input type="hidden" name="service" value="Wedding Photography" />
+                  <div>
+                    <label for="wed-name">Name</label>
+                    <input id="wed-name" name="name" required />
+                  </div>
+                  <div>
+                    <label for="wed-email">Email</label>
+                    <input id="wed-email" name="email" type="email" required />
+                  </div>
+                  <div>
+                    <label for="wed-message">Details</label>
+                    <textarea id="wed-message" name="message" placeholder="Venue, date (if known), estimated hours, and special requests."></textarea>
+                  </div>
+                  <button class="btn btn-primary" type="submit">Request Wedding Quote</button>
+                </form>
+              </div>
+            </div>
+
+            <div class="pricing-grid cols-2">
+              <div class="pricing-card">
+                <h3>🎓 Graduation Photography</h3>
+                <div class="price-tag">Base Packages</div>
+                <p>Solo Grad Session (45 min) – <strong>$200</strong></p>
+                <p>Friend Group (1 hour) – <strong>$275</strong></p>
+                <p>Event Coverage (2 hours) – <strong>$350</strong></p>
+                <p class="meta-note">Includes:</p>
+                <ul>
+                  <li>15–30 edited images</li>
+                  <li>Online gallery</li>
+                </ul>
+                <p class="meta-note">Add-Ons:</p>
+                <ul>
+                  <li>+$75 cap-and-gown cinematic video</li>
+                  <li>+$50 per outfit change</li>
+                  <li>+$50 per added friend</li>
+                </ul>
+                <hr />
+                <form name="grad-inquiry" method="POST" data-netlify="true">
+                  <input type="hidden" name="form-name" value="grad-inquiry" />
+                  <input type="hidden" name="service" value="Graduation Photography" />
+                  <div>
+                    <label for="gr-name">Name</label>
+                    <input id="gr-name" name="name" required />
+                  </div>
+                  <div>
+                    <label for="gr-email">Email</label>
+                    <input id="gr-email" name="email" type="email" required />
+                  </div>
+                  <div>
+                    <label for="gr-message">Details</label>
+                    <textarea id="gr-message" name="message" placeholder="Date, location, number of friends, outfit changes."></textarea>
+                  </div>
+                  <button class="btn btn-primary" type="submit">Request Graduation Quote</button>
+                </form>
+              </div>
+
+              <div class="pricing-card">
+                <h3>Projection Mapping Experience</h3>
+                <div class="price-tag">(Weddings only — case by case)</div>
+                <p>Small Experience (cake, small object, poster frame) – <strong>$300–$500</strong></p>
+                <p>Medium Experience (wall, décor piece, event backdrop) – <strong>$800–$1,500</strong></p>
+                <p>Large Experience (stage, building surface, immersive space) – <strong>$2,000–$6,000</strong></p>
+                <p class="meta-note">Includes:</p>
+                <ul>
+                  <li>Custom visuals</li>
+                  <li>Full setup</li>
+                  <li>Mapping installation</li>
+                  <li>1–3 minute loop</li>
+                </ul>
+                <p class="meta-note">Add-Ons:</p>
+                <ul>
+                  <li>+$200 extra minute of animation</li>
+                  <li>+$150 audio sync</li>
+                  <li>+$300 on-site technician support</li>
+                </ul>
+                <hr />
+                <form name="mapping-inquiry" method="POST" data-netlify="true">
+                  <input type="hidden" name="form-name" value="mapping-inquiry" />
+                  <input type="hidden" name="service" value="Projection Mapping" />
+                  <div>
+                    <label for="pm-name">Name</label>
+                    <input id="pm-name" name="name" required />
+                  </div>
+                  <div>
+                    <label for="pm-email">Email</label>
+                    <input id="pm-email" name="email" type="email" required />
+                  </div>
+                  <div>
+                    <label for="pm-message">Details</label>
+                    <textarea id="pm-message" name="message" placeholder="Venue dimensions, surface type, event date, and any visuals you imagine."></textarea>
+                  </div>
+                  <button class="btn btn-primary" type="submit">Request Mapping Quote</button>
+                </form>
+              </div>
+            </div>
+
+            <div class="section-footer">
+              <p class="small-note">If you'd like to book or request a custom quote, use the inquiry form.</p>
+            </div>
+          </div>
+
+          <div>
+            <h3>Request a Quote</h3>
+            <p class="small-note">Tell me which service you're interested in and include dates, location, and any special requirements.</p>
+            <form name="private-pricing-inquiry" method="POST" data-netlify="true">
+              <input type="hidden" name="form-name" value="private-pricing-inquiry" />
+              <input type="hidden" name="service" value="Private Pricing Inquiry" />
+              <div>
+                <label for="pp-name">Name</label>
+                <input id="pp-name" name="name" required />
+              </div>
+              <div>
+                <label for="pp-email">Email</label>
+                <input id="pp-email" name="email" type="email" required />
+              </div>
+              <div>
+                <label for="pp-service">Which service?</label>
+                <input id="pp-service" name="package" placeholder="Event, Wedding, Graduation, Projection Mapping" />
+              </div>
+              <div>
+                <label for="pp-message">Message</label>
+                <textarea id="pp-message" name="message" placeholder="Dates, guest counts, venue, and any notes."></textarea>
+              </div>
+              <button class="btn btn-primary" type="submit">Send Inquiry</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const password = document.getElementById('password-input').value;
+      // Replace 'yourpassword' with the actual password
+      if (password === 'yourpassword') {
+        document.getElementById('password-overlay').style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+      } else {
+        alert('Incorrect password. Please try again.');
+      }
+    }
+
+    // Allow Enter key to submit password
+    document.getElementById('password-input').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        checkPassword();
+      }
+    });
+  </script>
+  <script src="Assets/js/form-handler.js"></script>
+</body>
+</html>

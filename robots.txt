@@ -1,0 +1,5 @@
+User-agent: *
+Disallow:
+
+# Sitemap (Netlify site)
+Sitemap: https://thejosephmoyerproject.com/sitemap.xml

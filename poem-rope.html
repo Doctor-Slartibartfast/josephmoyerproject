@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Rope — The Joseph Moyer Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Rope — A poem by Joseph Moyer."
+  />
+  <link rel="icon" href="/Assets/Home/fav01.png" />
+  <link rel="canonical" href="/poem-rope.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Rope — The Joseph Moyer Project" />
+  <meta property="og:description" content="Rope — A poem by Joseph Moyer." />
+  <meta property="og:url" content="/poem-rope.html" />
+  <meta property="og:image" content="/Assets/Home/fav01.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Rope — The Joseph Moyer Project" />
+  <meta name="twitter:description" content="Rope — A poem by Joseph Moyer." />
+  <meta name="twitter:image" content="/Assets/Home/fav01.png" />
+  <meta name="theme-color" content="#0b1120" />
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "url":"/",
+    "name":"The Joseph Moyer Project",
+    "description":"Photography, writing, projection mapping, and design."
+  }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:#f3f4f6;
+      color:#111827;
+      line-height:1.6;
+    }
+    img{max-width:100%;display:block;}
+    a{text-decoration:none;color:inherit;}
+
+    .container{
+      max-width:1120px;
+      margin:0 auto;
+      padding:0 1.25rem;
+    }
+
+    /* HEADER (same structure as index.html) */
+    header{
+      position:sticky;
+      top:0;
+      z-index:40;
+      background:rgba(15,23,42,0.98);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(148,163,184,0.5);
+    }
+    .header-inner{
+      display:flex;
+      justify-content:center;
+      padding:0.9rem 0.5rem;
+    }
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:1.8rem;
+      font-size:0.9rem;
+    }
+    nav a{
+      position:relative;
+      color:#e5e7eb;
+      text-transform:uppercase;
+      letter-spacing:0.14em;
+      font-size:0.8rem;
+      padding:0.15rem 0.4rem;
+    }
+    nav a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-0.25rem;
+      width:0;
+      height:1px;
+      background:#facc15;
+      transition:width 0.16s ease;
+    }
+    nav a:hover::after{width:100%;}
+    @media(max-width:640px){nav{gap:0.8rem;}}
+
+    main{padding-bottom:3rem;}
+
+    /* Poem-specific styles */
+    .page {
+        max-width: 950px;
+        margin: 40px auto;
+        padding: 50px;
+        background: #fbf8f1;
+        border: 20px solid transparent;
+        border-image: url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80">\
+<path d="M0,40 C20,10 60,70 80,40" stroke="%238a6a3b" stroke-width="6" fill="none"/>\
+</svg>') 40 round;
+        box-shadow: 0 25px 70px rgba(0,0,0,0.18);
+    }
+
+    h1 {
+        text-align: center;
+        letter-spacing: 0.2em;
+        font-size: 3em;
+        margin-bottom: 70px;
+    }
+
+    .stanza {
+        display: flex;
+        align-items: center;
+        margin: 70px 0;
+    }
+
+    .stanza:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+
+    .text {
+        width: 65%;
+        padding: 20px 30px;
+        white-space: pre-line;
+        line-height: 1.8;
+        font-size: 1.1em;
+    }
+
+    .sketch {
+        width: 35%;
+        display: flex;
+        justify-content: center;
+    }
+
+    canvas {
+        width: 220px;
+        height: 170px;
+    }
+
+    @media (max-width: 800px) {
+        .stanza {
+            flex-direction: column !important;
+        }
+        .text, .sketch {
+            width: 100%;
+        }
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid #e5e7eb;
+      background: #ffffff;
+      padding: 2rem 0 1.5rem;
+      font-size: 0.85rem;
+      color: #4b5563;
+    }
+    .footer-top {
+      display: grid;
+      gap: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+    .footer-brand-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #111827;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    .footer-cols {
+      display: grid;
+      gap: 1.75rem;
+    }
+    .footer-heading {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #9ca3af;
+      margin-bottom: 0.5rem;
+    }
+    .footer-links, .footer-legal, .footer-social {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .footer-links a,
+    .footer-legal a,
+    .footer-social a {
+      color: #000000;
+    }
+    .footer-links a:hover,
+    .footer-legal a:hover,
+    .footer-social a:hover {
+      color: #333333;
+    }
+    .footer-bottom {
+      border-top: 1px solid #e5e7eb;
+      padding-top: 0.8rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    @media (min-width: 768px) {
+      .footer-top {
+        grid-template-columns: 1.4fr 2fr;
+      }
+      .footer-cols {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner container">
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="blog.html">Blog</a>
+        <a href="services.html">Services</a>
+        <a href="https://thejosephmoyerproject.printful.me/">Store</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+<div class="page">
+<h1>ROPE</h1>
+
+<div class="stanza">
+<canvas class="sketch" data-draw="wind"></canvas>
+<div class="text">
+Can you hear the wind howling
+Through the streets all deserted
+Mountains of sand
+where the roads used to be
+</div>
+</div>
+
+<div class="stanza">
+<canvas class="sketch" data-draw="doors"></canvas>
+<div class="text">
+The doors are all open
+And no signs on the windows
+A headline caught in the breeze
+Too horrible to read
+</div>
+</div>
+
+<div class="stanza">
+<canvas class="sketch" data-draw="vibration"></canvas>
+<div class="text">
+Through the tips of your fingers
+You can feel subtle vibration
+The world as we know it
+Will soon fade away
+</div>
+</div>
+
+<div class="stanza">
+<canvas class="sketch" data-draw="departure"></canvas>
+<div class="text">
+Leave behind your possessions
+And set off at daybreak
+There is nowhere a man
+Whom thinks he can stay
+</div>
+</div>
+
+<div class="stanza">
+<canvas class="sketch" data-draw="faces"></canvas>
+<div class="text">
+You can still see the shadows
+of expressionless faces
+What can you do
+when you're caught unaware?
+</div>
+</div>
+
+<div class="stanza">
+<canvas class="sketch" data-draw="time"></canvas>
+<div class="text">
+You can't even run out of time
+When time runs out on you
+Some ran for their lives
+Others sat and they stared
+</div>
+</div>
+
+<div class="stanza">
+<canvas class="sketch" data-draw="rope"></canvas>
+<div class="text">
+There's a rope in the desert
+For the blind men to follow
+Their skin turned red
+Beneath the sweltering sky
+</div>
+</div>
+
+<div class="stanza">
+<canvas class="sketch" data-draw="madmen"></canvas>
+<div class="text">
+Left behind by the masses
+Who ran for nearest shelter
+Under the hands of madmen
+Who did not know how to try
+</div>
+</div>
+
+<div class="stanza">
+<canvas class="sketch" data-draw="blisters"></canvas>
+<div class="text">
+The blisters on their faces
+Cry out for salvation
+Their thirst bellows mute
+Lost its voice long ago
+</div>
+</div>
+
+<div class="stanza">
+<canvas class="sketch" data-draw="alone"></canvas>
+<div class="text">
+No sympathy of strangers
+No Samaritan to help them
+Wherever it leads
+They just follow the rope
+</div>
+</div>
+
+<div class="stanza">
+<canvas class="sketch" data-draw="whispers"></canvas>
+<div class="text">
+Talk heard in faint whispers
+Of a place called Redemption
+Where the eyes of the blind
+Become those that can see
+</div>
+</div>
+
+<div class="stanza">
+<canvas class="sketch" data-draw="mirage"></canvas>
+<div class="text">
+Don’t be distracted by the sirens
+That call out before you
+Hallucinations and mirages
+Of things that deceive
+</div>
+</div>
+
+<div class="stanza">
+<canvas class="sketch" data-draw="heart"></canvas>
+<div class="text">
+Keep the eyes of your heart
+Upon the place called Redemption
+Feel the pull as it tells you
+The right way to turn
+</div>
+</div>
+
+<div class="stanza">
+<canvas class="sketch" data-draw="peace"></canvas>
+<div class="text">
+The violence is over
+For there is nothing to fight for
+You will have what you need
+And a new law to learn
+</div>
+</div>
+
+<div class="stanza">
+<canvas class="sketch" data-draw="millions"></canvas>
+<div class="text">
+If blind men could see
+The masses of millions
+Wading through the desert
+With a rope of their own
+</div>
+</div>
+
+<div class="stanza">
+<canvas class="sketch" data-draw="bones"></canvas>
+<div class="text">
+Who blazed these trails?
+Through a desert of the dying
+The sands of the ground
+Made of old windlashed bones
+</div>
+</div>
+
+<div class="stanza">
+<canvas class="sketch" data-draw="invitation"></canvas>
+<div class="text">
+Respond please if able
+To the invitation which calls you
+To the place called Redemption
+Rise if you can
+</div>
+</div>
+
+<div class="stanza">
+<canvas class="sketch" data-draw="gate"></canvas>
+<div class="text">
+At the gate is a blind man
+With vision resurrected
+He welcomes you with gifts
+And a loving outstretched hand
+</div>
+</div>
+
+<div class="stanza">
+<canvas class="sketch" data-draw="silence"></canvas>
+<div class="text">
+Close you eyes and shut out
+The noise of the fallen
+Feel for your rope
+And travel at will
+</div>
+</div>
+
+<div class="stanza">
+<canvas class="sketch" data-draw="beacon"></canvas>
+<div class="text">
+To the place called Redemption
+Press on though so weary
+Join the walk of the blind
+It beacons you still
+</div>
+</div>
+
+</div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-brand-title">The Joseph Moyer Project</div>
+          <p>Creative photography, writing, projection mapping, and marketing & design services.</p>
+        </div>
+        <div class="footer-cols">
+          <div>
+            <h4 class="footer-heading">Navigate</h4>
+            <div class="footer-links">
+              <a href="index.html">Home</a>
+              <a href="about.html">About</a>
+              <a href="portfolio.html">Portfolio</a>
+              <a href="blog.html">Blog</a>
+              <a href="services.html">Services</a>
+              <a href="https://thejosephmoyerproject.printful.me/">Store</a>
+            </div>
+          </div>
+          <div>
+            <h4 class="footer-heading">Connect</h4>
+            <div class="footer-social">
+              <a href="mailto:contact@josephmoyerproject.com">Email</a>
+              <a href="https://instagram.com/josephmoyerproject" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a href="https://linkedin.com/in/josephmoyer" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="https://www.behance.net/JosephMoyer" target="_blank" rel="noopener noreferrer">Behance</a>
+            </div>
+          </div>
+          <div>
+            <h4 class="footer-heading">Legal</h4>
+            <div class="footer-legal">
+              <a href="privacy.html">Privacy Policy</a>
+              <a href="terms.html">Terms of Service</a>
+              <a href="refund.html">Refund Policy</a>
+              <a href="shipping.html">Shipping Policy</a>
+              <a href="accessibility.html">Accessibility</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 The Joseph Moyer Project. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+<script>
+const ctxDraw = {
+ wind(c){line(c,[[10,40,80,10,140,70,210,40]],"#9b7b4a")},
+ doors(c){rect(c,40,30,50,110);rect(c,120,30,50,110)},
+ vibration(c){rings(c)},
+ departure(c){triangle(c)},
+ faces(c){heads(c)},
+ time(c){clock(c)},
+ rope(c){curve(c)},
+ madmen(c){jagged(c)},
+ blisters(c){dots(c)},
+ alone(c){figure(c)},
+ whispers(c){waves(c)},
+ mirage(c){blur(c)},
+ heart(c){heart(c)},
+ peace(c){circle(c)},
+ millions(c){many(c)},
+ bones(c){bones(c)},
+ invitation(c){hand(c)},
+ gate(c){gate(c)},
+ silence(c){closed(c)},
+ beacon(c){light(c)}
+};
+
+document.querySelectorAll("canvas").forEach(cv=>{
+ const c=cv.getContext("2d");
+ ctxDraw[cv.dataset.draw]?.(c);
+});
+
+// minimalist pencil helpers
+function line(c,p,col){c.strokeStyle=col;c.lineWidth=2;c.beginPath();p.forEach(a=>c.bezierCurveTo(...a));c.stroke()}
+function rect(c,x,y,w,h){c.strokeRect(x,y,w,h)}
+function rings(c){for(let i=1;i<6;i++){c.beginPath();c.arc(110,85,i*15,0,Math.PI*2);c.stroke()}}
+function curve(c){c.beginPath();c.moveTo(20,85);c.bezierCurveTo(80,20,140,150,200,85);c.stroke()}
+function many(c){for(let i=0;i<6;i++){c.beginPath();c.arc(50+i*25,80,10,0,6.28);c.stroke()}}
+function circle(c){c.beginPath();c.arc(110,85,45,0,6.28);c.stroke()}
+function heart(c){c.beginPath();c.moveTo(110,120);c.bezierCurveTo(60,60,80,30,110,55);c.bezierCurveTo(140,30,160,60,110,120);c.stroke()}
+function gate(c){rect(c,60,30,90,120)}
+function light(c){line(c,[[110,20,110,150,110,150,110,150]],"#c9a34d")}
+function bones(c){line(c,[[40,80,180,80,180,80,40,80]],"#777")}
+function hand(c){line(c,[[60,100,110,60,160,100,160,100]],"#8a6a3b")}
+function figure(c){line(c,[[110,50,110,120,110,120,110,120]],"#5c4a35")}
+function closed(c){line(c,[[60,85,160,85,160,85,60,85]],"#555")}
+function waves(c){line(c,[[30,90,80,70,140,110,190,90]],"#7a5b3a")}
+function blur(c){rings(c)}
+function jagged(c){line(c,[[40,60,80,120,120,40,160,120]],"#7b3b3b")}
+function dots(c){for(let i=0;i<20;i++){c.fillRect(Math.random()*200,Math.random()*150,2,2)}}
+function triangle(c){c.beginPath();c.moveTo(110,30);c.lineTo(40,130);c.lineTo(180,130);c.closePath();c.stroke()}
+function clock(c){circle(c);line(c,[[110,85,110,45,110,45,110,45]]);}
+function heads(c){for(let i=0;i<3;i++){c.beginPath();c.arc(70+i*40,85,15,0,6.28);c.stroke()}}
+</script>
+</body>
+</html>

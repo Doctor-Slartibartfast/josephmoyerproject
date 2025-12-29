@@ -8,6 +8,27 @@
     name="description"
     content="The Joseph Moyer Project — photography, creative writings, projection mapping, and design. Telling stories through words, images & light."
   />
+  <link rel="icon" href="/Assets/Home/fav01.png" />
+  <link rel="canonical" href="/index.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="The Joseph Moyer Project — Basecamp" />
+  <meta property="og:description" content="The Joseph Moyer Project — photography, creative writings, projection mapping, and design. Telling stories through words, images & light." />
+  <meta property="og:url" content="/index.html" />
+  <meta property="og:image" content="/Assets/Home/fav01.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Joseph Moyer Project — Basecamp" />
+  <meta name="twitter:description" content="The Joseph Moyer Project — photography, creative writings, projection mapping, and design. Telling stories through words, images & light." />
+  <meta name="twitter:image" content="/Assets/Home/fav01.png" />
+  <meta name="theme-color" content="#0b1120" />
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "url":"/",
+    "name":"The Joseph Moyer Project",
+    "description":"Photography, writing, projection mapping, and design."
+  }
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet" />
   <style>
@@ -150,7 +171,7 @@
     .hero-logo-text {
       font-family: "Audiowide", "Space Grotesk", system-ui, sans-serif;
       font-weight: 400;
-      font-size: clamp(1.2rem, 2.1vw, 1.7rem);
+      font-size: clamp(1.38rem, 2.42vw, 1.96rem);
       letter-spacing: 0.28em;
       text-transform: uppercase;
       margin-bottom: 0.6rem;
@@ -265,6 +286,50 @@
       border-radius: 0.6rem;
       object-fit: cover;
       background: linear-gradient(135deg, #1e293b, #0f172a);
+      cursor: pointer;
+      transition: transform 0.14s ease, box-shadow 0.14s ease;
+    }
+    .favorites-grid img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox.active {
+      display: flex;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-drag: none;
+      -khtml-user-drag: none;
+      -moz-user-drag: none;
+      -o-user-drag: none;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 1001;
     }
 
     /* STORE / FEATURED PRODUCTS */
@@ -288,7 +353,32 @@
 
     /* BACKSTORY */
     .backstory-inner {
-      max-width: 880px;
+      max-width: 1200px;
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+    }
+    .backstory-content {
+      flex: 1;
+    }
+    .backstory-image {
+      flex: 0 0 300px;
+    }
+    .backstory-image img {
+      width: 100%;
+      border-radius: 1rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+    @media(max-width: 768px) {
+      .backstory-inner {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .backstory-image {
+        flex: none;
+        width: 100%;
+        max-width: 300px;
+      }
     }
 
     /* BLOG CARDS ON HOME */
@@ -444,12 +534,12 @@
     .footer-links a,
     .footer-legal a,
     .footer-social a {
-      color: #4b5563;
+      color: #000000;
     }
     .footer-links a:hover,
     .footer-legal a:hover,
     .footer-social a:hover {
-      color: #111827;
+      color: #333333;
     }
     .footer-bottom {
       border-top: 1px solid #e5e7eb;
@@ -477,8 +567,9 @@
       <nav>
         <a href="index.html#hero">Basecamp</a>
         <a href="portfolio.html">Portfolio</a>
-        <a href="index.html#store">The Store</a>
+        <a href="https://thejosephmoyerproject.printful.me/" target="_blank" rel="noopener">The Store</a>
         <a href="blog.html">Notes from the Field</a>
+        <a href="spotify.html">Soundtracks</a>
         <a href="services.html">Services</a>
       </nav>
     </div>
@@ -489,7 +580,7 @@
     <section class="hero" id="hero">
       <div class="hero-inner">
         <div class="hero-center">
-          <img src="assets/home/logo (white).png" alt="The Joseph Moyer Project logo" class="hero-logo-mark" />
+          <img src="Assets/Logo/logo (white).png" alt="The Joseph Moyer Project logo" class="hero-logo-mark" decoding="async" />
           <div class="hero-logo-text">THE JOSEPH MOYER PROJECT</div>
           <p class="hero-tagline">Telling Stories Through Words, Images &amp; Light.</p>
         </div>
@@ -509,28 +600,28 @@
           Each path unlocks its own world—seeing through new eyes, forging stories, bending light, or crafting bold creations.
         </p>
         <div class="grid grid-4">
-          <a href="photography-portfolio.html" class="trail-card">
+          <a href="portfolio-photography.html" class="trail-card">
             <div class="trail-image" style="background-image:url('assets/home/adventure-photo.png');"></div>
             <div class="trail-body">
               <h3>Photography</h3>
               <p>See the world through my eyes.</p>
             </div>
           </a>
-          <a href="writing-portfolio.html" class="trail-card">
+          <a href="portfolio-writing.html" class="trail-card">
             <div class="trail-image" style="background-image:url('assets/home/adventure-writing.png');"></div>
             <div class="trail-body">
               <h3>Creative Writing</h3>
               <p>Allow me to tell you a story.</p>
             </div>
           </a>
-          <a href="projection-portfolio.html" class="trail-card">
+          <a href="portfolio-projection.html" class="trail-card">
             <div class="trail-image" style="background-image:url('assets/home/adventure-lightshow.png');"></div>
             <div class="trail-body">
               <h3>Projection Mapping</h3>
               <p>Watch light bend reality and turn ordinary spaces into wonder.</p>
             </div>
           </a>
-          <a href="marketing-portfolio.html" class="trail-card">
+          <a href="portfolio-marketing.html" class="trail-card">
             <div class="trail-image" style="background-image:url('assets/home/adventure-marketing.png');"></div>
             <div class="trail-body">
               <h3>Marketing &amp; Design</h3>
@@ -547,29 +638,29 @@
         <div class="section-subtitle">Portfolio</div>
         <h2 class="section-heading">Curated Favorites</h2>
         <p class="section-intro">
-          A wandering collection of the weird and wonderful. Twenty photos that behaved themselves long enough to be added to this list.
+          Capture the essence of the enduring beauty all around us with these timeless images of landscapes, waterfalls, serene reflections and more. The few have survived intense culling to become part of my exclusive favorites list.
         </p>
         <div class="grid grid-4 favorites-grid">
-          <img src="assets/home/fav01.png" alt="" />
-          <img src="assets/home/fav02.png" alt="" />
-          <img src="assets/home/fav03.png" alt="" />
-          <img src="assets/home/fav04.png" alt="" />
-          <img src="assets/home/fav05.png" alt="" />
-          <img src="assets/home/fav06.png" alt="" />
-          <img src="assets/home/fav07.png" alt="" />
-          <img src="assets/home/fav08.png" alt="" />
-          <img src="assets/home/fav09.png" alt="" />
-          <img src="assets/home/fav10.png" alt="" />
-          <img src="assets/home/fav11.png" alt="" />
-          <img src="assets/home/fav12.png" alt="" />
-          <img src="assets/home/fav13.png" alt="" />
-          <img src="assets/home/fav14.png" alt="" />
-          <img src="assets/home/fav15.png" alt="" />
-          <img src="assets/home/fav16.png" alt="" />
-          <img src="assets/home/fav17.png" alt="" />
-          <img src="assets/home/fav18.jpg" alt="" />
-          <img src="assets/home/fav19.png" alt="" />
-          <img src="assets/home/fav20.png" alt="" />
+          <img src="assets/home/fav01.png" alt="Favorite image 01" onclick="openLightbox(this)" loading="lazy" decoding="async" />
+          <img src="assets/home/fav02.png" alt="Favorite image 02" onclick="openLightbox(this)" loading="lazy" decoding="async" />
+          <img src="assets/home/fav03.png" alt="Favorite image 03" onclick="openLightbox(this)" loading="lazy" decoding="async" />
+          <img src="assets/home/fav04.png" alt="Favorite image 04" onclick="openLightbox(this)" loading="lazy" decoding="async" />
+          <img src="assets/home/fav05.png" alt="Favorite image 05" onclick="openLightbox(this)" loading="lazy" decoding="async" />
+          <img src="assets/home/fav06.png" alt="Favorite image 06" onclick="openLightbox(this)" loading="lazy" decoding="async" />
+          <img src="assets/home/fav07.png" alt="Favorite image 07" onclick="openLightbox(this)" loading="lazy" decoding="async" />
+          <img src="assets/home/fav08.png" alt="Favorite image 08" onclick="openLightbox(this)" loading="lazy" decoding="async" />
+          <img src="assets/home/fav09.png" alt="Favorite image 09" onclick="openLightbox(this)" loading="lazy" decoding="async" />
+          <img src="assets/home/fav10.png" alt="Favorite image 10" onclick="openLightbox(this)" loading="lazy" decoding="async" />
+          <img src="assets/home/fav11.png" alt="Favorite image 11" onclick="openLightbox(this)" loading="lazy" decoding="async" />
+          <img src="assets/home/fav12.png" alt="Favorite image 12" onclick="openLightbox(this)" loading="lazy" decoding="async" />
+          <img src="assets/home/fav13.png" alt="Favorite image 13" onclick="openLightbox(this)" loading="lazy" decoding="async" />
+          <img src="assets/home/fav14.png" alt="Favorite image 14" onclick="openLightbox(this)" loading="lazy" decoding="async" />
+          <img src="assets/home/fav15.png" alt="Favorite image 15" onclick="openLightbox(this)" loading="lazy" decoding="async" />
+          <img src="assets/home/fav16.png" alt="Favorite image 16" onclick="openLightbox(this)" loading="lazy" decoding="async" />
+          <img src="assets/home/fav17.png" alt="Favorite image 17" onclick="openLightbox(this)" loading="lazy" decoding="async" />
+          <img src="assets/home/fav18.jpg" alt="Favorite image 18" onclick="openLightbox(this)" loading="lazy" decoding="async" />
+          <img src="assets/home/fav19.png" alt="Favorite image 19" onclick="openLightbox(this)" loading="lazy" decoding="async" />
+          <img src="assets/home/fav20.png" alt="Favorite image 20" onclick="openLightbox(this)" loading="lazy" decoding="async" />
         </div>
         <div style="margin-top: 2rem; text-align:center;">
           <a href="portfolio.html" class="btn btn-primary">See More</a>
@@ -584,7 +675,7 @@
         <h2 class="section-heading">The Store</h2>
         <div class="store-layout">
           <div class="store-image">
-            <img src="assets/home/storefront.png" alt="Storefront preview" />
+            <img src="assets/home/storefront.png" alt="Storefront preview" loading="lazy" decoding="async" />
           </div>
           <div>
             <p class="section-intro">
@@ -600,7 +691,7 @@
               Take a look around, find what speaks to you, and add a bit more light to your world—one piece at a time.
             </p>
             <div style="margin-top: 1.5rem; text-align:center;">
-              <a href="store.html" class="btn btn-primary">Visit Store</a>
+              <a href="https://thejosephmoyerproject.printful.me/" target="_blank" rel="noopener" class="btn btn-primary">Visit Store</a>
             </div>
           </div>
         </div>
@@ -613,7 +704,7 @@
         <div class="section-subtitle">The Backstory</div>
         <h2 class="section-heading">The Backstory</h2>
         <div class="backstory-inner">
-          <p>
+          <div class="backstory-content">
             While exploring the far reaches of the internet, one of life’s big questions likely flashed across your mind:
             “Who is Joseph Moyer?” Then, somehow, you ended up here, on this homepage, in your relentless quest for answers. But don't stop now.
             This entire website is dedicated to helping you learn as much as you want—followed by the closest thing to a support group once you’re finished.
@@ -624,7 +715,11 @@
             words together until they become something that makes you pause, I’m here to help you find beauty, humor, and a fresh perspective in the everyday.
           </p>
           <div style="margin-top:1.5rem; text-align:center;">
-            <a href="about.html" class="btn btn-secondary">Read More</a>
+            <a href="about.html" class="btn btn-primary">Read More</a>
+          </div>
+          </div>
+          <div class="backstory-image">
+            <img src="Assets/Home/The Backstory Bio Pic.jpg" alt="Joseph Moyer portrait" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>
@@ -640,7 +735,7 @@
           and the occasional spark of inspiration. It's my brain but organized... mostly.
         </p>
         <div class="grid grid-3">
-          <a href="blog.html#projection-mapping" class="blog-card">
+          <a href="blog-projection-mapping.html" class="blog-card">
             <div class="blog-thumb" style="background-image:url('assets/home/notes from the field - projection mapping.png');"></div>
             <div class="blog-body">
               <div class="blog-meta">Inspiration</div>
@@ -648,7 +743,7 @@
               <p>A quick dive into projection mapping and how it could change your life.</p>
             </div>
           </a>
-          <a href="blog.html#everyone-has-a-story" class="blog-card">
+          <a href="blog-writing.html" class="blog-card">
             <div class="blog-thumb" style="background-image:url('assets/home/notes from the field - stories.png');"></div>
             <div class="blog-body">
               <div class="blog-meta">Personal Journal</div>
@@ -656,7 +751,7 @@
               <p>Each person has their own journey. How does The Joseph Moyer Project try to capture this for you?</p>
             </div>
           </a>
-          <a href="blog.html#welcome" class="blog-card">
+          <a href="blog-welcome.html" class="blog-card">
             <div class="blog-thumb" style="background-image:url('assets/home/notes from the field - thejosephmoyerproject.png');"></div>
             <div class="blog-body">
               <div class="blog-meta">Update</div>
@@ -705,7 +800,7 @@
 
   </main>
 
-  <!-- FOOTER -->
+ <!-- FOOTER -->
   <footer>
     <div class="container">
       <div class="footer-top">
@@ -726,10 +821,11 @@
           <div>
             <div class="footer-heading">Connect</div>
             <div class="footer-social">
-              <a href="https://www.instagram.com/josephmoyer/" target="_blank" rel="noreferrer">Instagram</a>
-              <a href="https://www.facebook.com/thejosephmoyerproject" target="_blank" rel="noreferrer">Facebook</a>
-              <a href="https://www.linkedin.com/in/josephmoyer/" target="_blank" rel="noreferrer">LinkedIn</a>
-              <a href="https://open.spotify.com/user/thedoctor042" target="_blank" rel="noreferrer">Spotify</a>
+              <a href="https://www.instagram.com/josephmoyer/" target="_blank" rel="noreferrer noopener">Instagram</a>
+              <a href="https://www.facebook.com/thejosephmoyerproject" target="_blank" rel="noreferrer noopener">Facebook</a>
+              <a href="https://www.linkedin.com/in/josephmoyer/" target="_blank" rel="noreferrer noopener">LinkedIn</a>
+              <a href="https://www.behance.net/JosephMoyer" target="_blank" rel="noreferrer noopener">Behance</a>
+              <a href="https://open.spotify.com/user/thedoctor042" target="_blank" rel="noreferrer noopener">Spotify</a>
             </div>
           </div>
           <div>
@@ -748,10 +844,59 @@
         © <span id="year"></span> The Joseph Moyer Project. All rights reserved.
       </div>
     </div>
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
   </footer>
 
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <img id="lightbox-image" src="" alt="" />
+  </div>
+
+  <script>
+    function openLightbox(element) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-image');
+      lightboxImg.src = element.src;
+      lightbox.classList.add('active');
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.remove('active');
+    }
+
+    // Close lightbox on ESC key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+
+    // Prevent copying/downloading
+    document.addEventListener('contextmenu', function(event) {
+      if (event.target.closest('.lightbox')) {
+        event.preventDefault();
+      }
+    });
+
+    // Prevent keyboard shortcuts for copying
+    document.addEventListener('keydown', function(event) {
+      if (event.target.closest('.lightbox')) {
+        if ((event.ctrlKey || event.metaKey) && (event.key === 'c' || event.key === 'C' ||
+            event.key === 's' || event.key === 'S' || event.key === 'a' || event.key === 'A')) {
+          event.preventDefault();
+        }
+      }
+    });
+
+    // Prevent dragging
+    document.addEventListener('dragstart', function(event) {
+      if (event.target.closest('.lightbox img')) {
+        event.preventDefault();
+      }
+    });
+  </script>
+
+  <script src="Assets/js/form-handler.js"></script>
 </body>
 </html>

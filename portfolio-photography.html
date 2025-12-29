@@ -4,6 +4,28 @@
   <meta charset="UTF-8" />
   <title>Photography Portfolio — The Joseph Moyer Project</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Photography portfolio showcasing curated collections from The Joseph Moyer Project." />
+  <link rel="icon" href="/Assets/Home/fav01.png" />
+  <link rel="canonical" href="/portfolio-photography.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Photography Portfolio — The Joseph Moyer Project" />
+  <meta property="og:description" content="Photography portfolio showcasing curated collections from The Joseph Moyer Project." />
+  <meta property="og:url" content="/portfolio-photography.html" />
+  <meta property="og:image" content="/Assets/Home/fav01.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Photography Portfolio — The Joseph Moyer Project" />
+  <meta name="twitter:description" content="Photography portfolio showcasing curated collections from The Joseph Moyer Project." />
+  <meta name="twitter:image" content="/Assets/Home/fav01.png" />
+  <meta name="theme-color" content="#0b1120" />
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "url":"/",
+    "name":"The Joseph Moyer Project",
+    "description":"Photography, writing, projection mapping, and design."
+  }
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
   <style>
     *,*::before,*::after{box-sizing:border-box;}
@@ -14,215 +36,296 @@
       color:#111827;
       line-height:1.6;
     }
-    img{max-width:100%;display:block;}
-    a{text-decoration:none;color:inherit;}
-    .container{max-width:1120px;margin:0 auto;padding:0 1.25rem;}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <title>Photography Portfolio — The Joseph Moyer Project</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+      <style>
+        *,*::before,*::after{box-sizing:border-box;}
+        body{
+          margin:0;
+          font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+          background:#f3f4f6;
+          color:#111827;
+          line-height:1.6;
+        }
+        img{max-width:100%;display:block;}
+        a{text-decoration:none;color:inherit;}
+        .container{max-width:1120px;margin:0 auto;padding:0 1.25rem;}
 
-    header{
-      position:sticky;top:0;z-index:40;
-      background:rgba(15,23,42,0.98);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid rgba(148,163,184,0.5);
-    }
-    .header-inner{
-      display:flex;justify-content:center;
-      padding:0.9rem 0.5rem;
-    }
-    nav{
-      display:flex;flex-wrap:wrap;justify-content:center;
-      gap:1.8rem;font-size:0.9rem;
-    }
-    nav a{
-      position:relative;
-      color:#e5e7eb;
-      text-transform:uppercase;
-      letter-spacing:0.14em;
-      font-size:0.8rem;
-      padding:0.15rem 0.4rem;
-    }
-    nav a::after{
-      content:"";position:absolute;left:0;bottom:-0.25rem;
-      width:0;height:1px;background:#facc15;transition:width 0.16s ease;
-    }
-    nav a:hover::after{width:100%;}
-    @media(max-width:640px){nav{gap:0.8rem;}}
+        header{position:sticky;top:0;z-index:40;background:rgba(15,23,42,0.98);backdrop-filter:blur(12px);border-bottom:1px solid rgba(148,163,184,0.5);}
+        .header-inner{display:flex;justify-content:center;padding:0.9rem 0.5rem;}
+        nav{display:flex;flex-wrap:wrap;justify-content:center;gap:1.8rem;font-size:0.9rem;}
+        nav a{position:relative;color:#e5e7eb;text-transform:uppercase;letter-spacing:0.14em;font-size:0.8rem;padding:0.15rem 0.4rem}
+        nav a::after{content:"";position:absolute;left:0;bottom:-0.25rem;width:0;height:1px;background:#facc15;transition:width 0.16s ease}
+        nav a:hover::after{width:100%}
+        @media(max-width:640px){nav{gap:0.8rem}}
 
-    main{padding-bottom:3rem;}
-    section{padding:3rem 0;}
-    .section-light{background:#f5f5f7;}
+        main{padding-bottom:3rem}
+        section{padding:3rem 0}
+        .section-light{background:#f5f5f7}
 
-    .section-subtitle{
-      font-size:0.8rem;text-transform:uppercase;
-      letter-spacing:0.18em;margin-bottom:0.2rem;opacity:0.8;
-    }
-    .section-heading{font-size:1.8rem;margin:0 0 0.5rem;}
-    .section-intro{max-width:640px;font-size:0.96rem;color:#4b5563;}
+        .section-subtitle{font-size:0.8rem;text-transform:uppercase;letter-spacing:0.18em;margin-bottom:0.2rem;opacity:0.8}
+        .section-heading{font-size:1.8rem;margin:0 0 0.5rem}
+        .section-intro{max-width:640px;font-size:0.96rem;color:#4b5563}
 
-    .breadcrumb{font-size:0.8rem;color:#6b7280;margin-bottom:0.5rem;}
-    .breadcrumb a{color:#6b7280;}
-    .breadcrumb a:hover{color:#111827;}
+        .breadcrumb{font-size:0.8rem;color:#6b7280;margin-bottom:0.5rem}
+        .breadcrumb a{color:#6b7280}
 
-    .grid{
-      display:grid;gap:1.25rem;margin-top:1.75rem;
-    }
-    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr));}
-    @media(max-width:1024px){
-      .grid-3{grid-template-columns:repeat(2,minmax(0,1fr));}
-    }
-    @media(max-width:768px){
-      .grid-3{grid-template-columns:minmax(0,1fr);}
-    }
+        .grid{display:grid;gap:1.25rem;margin-top:1.75rem}
+        /* match portfolio.html sizing: 4-column desktop */
+        .grid-4{grid-template-columns:repeat(4,minmax(0,1fr));}
+        @media(max-width:1024px){.grid-4{grid-template-columns:repeat(2,minmax(0,1fr));}}
+        @media(max-width:768px){.grid-4{grid-template-columns:minmax(0,1fr);}}
 
-    .collection-card{
-      border-radius:1rem;
-      overflow:hidden;
-      background:#ffffff;
-      border:1px solid rgba(148,163,184,0.5);
-      display:flex;
-      flex-direction:column;
-      box-shadow:0 10px 25px rgba(15,23,42,0.08);
-    }
-    .collection-image{
-      width:100%;aspect-ratio:4/3;overflow:hidden;
-      background:#e5e7eb;
-    }
-    .collection-image img{
-      width:100%;height:100%;object-fit:cover;
-    }
-    .collection-body{
-      padding:0.9rem 1rem 1rem;
-    }
-    .collection-body h3{
-      margin:0 0 0.25rem;font-size:1.02rem;
-    }
-    .collection-body p{
-      margin:0;font-size:0.9rem;color:#4b5563;
-    }
-  </style>
-</head>
-<body>
+        .collection-card{border-radius:1rem;overflow:hidden;background:#ffffff;border:1px solid rgba(148,163,184,0.5);display:flex;flex-direction:column;transition:transform 0.14s ease,box-shadow 0.14s ease,border-color 0.14s ease;cursor:pointer}
+        .collection-card:hover{transform:translateY(-2px);box-shadow:0 18px 45px rgba(15,23,42,0.16);border-color:#facc15}
+        .collection-image{width:100%;aspect-ratio:4/3;overflow:hidden;background:#e5e7eb}
+        .collection-image img{width:100%;height:100%;object-fit:cover}
+        .collection-body{padding:0.9rem 1rem 1rem}
+        .collection-body h3{margin:0 0 0.2rem;font-size:1.05rem}
+        .collection-body p{margin:0;font-size:0.9rem;color:#4b5563}
 
-<header>
-  <div class="container header-inner">
-    <nav>
-      <a href="index.html#hero">Basecamp</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="index.html#store">The Store</a>
-      <a href="index.html#blog">Notes from the Field</a>
-      <a href="services.html">Services</a>
-    </nav>
-  </div>
-</header>
+        /* small variant for centered single card (Everything At Once) */
+        .collection-card--small{width:40%;max-width:520px;align-self:center}
+        @media(max-width:768px){.collection-card--small{width:100%;max-width:none}}
 
-<main>
-  <section class="section-light">
-    <div class="container">
-      <div class="breadcrumb">
-        <a href="index.html#hero">Home</a> ·
-        <a href="portfolio.html">Portfolio</a> · Photography
+        /* LIGHTBOX */
+        .lightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:1000;cursor:pointer;align-items:center;justify-content:center}
+        .lightbox.active{display:flex}
+        .lightbox img{max-width:90%;max-height:90%;object-fit:contain;pointer-events:none}
+        .lightbox-close{position:absolute;top:20px;right:20px;color:white;font-size:2rem;cursor:pointer;z-index:1001}
+
+        /* FOOTER */
+        footer{border-top:1px solid #e5e7eb;background:#ffffff;padding:2rem 0 1.5rem;font-size:0.85rem;color:#4b5563}
+        .footer-top{display:grid;gap:1.5rem;margin-bottom:1.2rem}
+        .footer-brand-title{font-size:0.95rem;font-weight:600;color:#111827;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:0.4rem}
+        .footer-cols{display:grid;gap:1.75rem}
+        .footer-heading{font-size:0.8rem;text-transform:uppercase;letter-spacing:0.12em;color:#9ca3af;margin-bottom:0.5rem}
+        .footer-links,.footer-legal,.footer-social{display:flex;flex-direction:column;gap:0.25rem}
+        .footer-links a,.footer-legal a,.footer-social a{color:#000000}
+        .footer-links a:hover,.footer-legal a:hover,.footer-social a:hover{color:#333333}
+        .footer-bottom{border-top:1px solid #e5e7eb;padding-top:0.8rem;text-align:center;font-size:0.8rem;color:#9ca3af}
+        @media(min-width:768px){.footer-top{grid-template-columns:1.4fr 2fr}.footer-cols{grid-template-columns:repeat(3,minmax(0,1fr))}}
+      </style>
+    </head>
+    <body>
+
+    <header>
+      <div class="container header-inner">
+        <nav>
+          <a href="index.html#hero">Basecamp</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="https://thejosephmoyerproject.printful.me/">The Store</a>
+          <a href="blog.html">Notes from the Field</a>
+          <a href="services.html">Services</a>
+        </nav>
       </div>
-      <div class="section-subtitle">Photography</div>
-      <h1 class="section-heading">Photography Collections</h1>
-      <p class="section-intro">
-        A set of themed collections—from quiet landscapes to city corners and close-up details.
-        Each collection can grow over time as new images join the story.
-      </p>
+    </header>
 
-      <div class="grid grid-3">
-        <!-- NOTE: update the src paths to the exact files you want for each collection -->
-        <article class="collection-card">
-          <div class="collection-image">
-            <img src="assets/home/fav01.png" alt="Across the Land collection cover." />
+    <main>
+      <section class="section-light">
+        <div class="container">
+          <div class="breadcrumb">
+            <a href="index.html#hero">Basecamp</a> ·
+            <a href="portfolio.html">Portfolio</a> · Photography
           </div>
-          <div class="collection-body">
-            <h3>Across the Land</h3>
-            <p>Landscapes, horizons, and the quiet spaces in between.</p>
-          </div>
-        </article>
+          <div class="section-subtitle">Photography</div>
+          <h1 class="section-heading">Photography Collections</h1>
+          <p class="section-intro">
+            Welcome to the visual side of my brain.
 
-        <article class="collection-card">
-          <div class="collection-image">
-            <img src="assets/home/fav06.png" alt="Feathers &amp; Footprints collection cover." />
-          </div>
-          <div class="collection-body">
-            <h3>Feathers &amp; Footprints</h3>
-            <p>Birds, wildlife, and the creatures that wander through the frame.</p>
-          </div>
-        </article>
+            This is where you’ll find what happens when I bring a camera into the wild and occasionally stand in odd positions in public spaces. These aren’t just snapshots—they’re attempts to trap light, wrangle feeling, and press pause on a world that never sits still. Whether it’s the moon being moody, the sky showing off again, or a squirrel giving me side-eye, each image is my way of saying, “Hey, look at this weird and wonderful thing I noticed.”
 
-        <article class="collection-card">
-          <div class="collection-image">
-            <img src="assets/home/fav03.png" alt="Urban Vibes collection cover." />
-          </div>
-          <div class="collection-body">
-            <h3>Urban Vibes</h3>
-            <p>City corners, street light, and the rhythm of everyday movement.</p>
-          </div>
-        </article>
+            You’ll find landscapes, little details, city corners, animal cameos, and maybe even a few surprises. Each image here is a small piece of how I see the world—slightly off-center, curious, and occasionally dramatic (but in a good way). I try to keep things honest, a little poetic, and hopefully not too over-edited—because real light is magic enough on its own.
 
-        <article class="collection-card">
-          <div class="collection-image">
-            <img src="assets/home/fav04.png" alt="Moonlit Moments collection cover." />
-          </div>
-          <div class="collection-body">
-            <h3>Moonlit Moments</h3>
-            <p>Evening skies, moonlight, and the colors that only appear after sunset.</p>
-          </div>
-        </article>
+            So take your time. Scroll slowly. Click what catches your eye. Linger if something pulls you in.
 
-        <article class="collection-card">
-          <div class="collection-image">
-            <img src="assets/home/fav05.png" alt="Everything At Once collection cover." />
-          </div>
-          <div class="collection-body">
-            <h3>Everything At Once</h3>
-            <p>Close-up details, textures, and visual chaos that somehow works.</p>
-          </div>
-        </article>
+            Each card on the page should lead to a new gallery. These should not be treated as pictures.
+          </p>
 
-        <article class="collection-card">
-          <div class="collection-image">
-            <img src="assets/home/fav02.png" alt="Above Us collection cover." />
-          </div>
-          <div class="collection-body">
-            <h3>Above Us</h3>
-            <p>Clouds, sky, and moments that make you look up for a while.</p>
-          </div>
-        </article>
+          <div class="grid grid-4">
+            <!-- Across the Land -->
+            <a class="collection-card" href="portfolio-photography-across-the-land.html">
+              <div class="collection-image">
+                <img src="Assets/Home/fav01.png" alt="Across the Land collection cover." loading="lazy" decoding="async" />
+              </div>
+              <div class="collection-body">
+                <h3>Across the Land</h3>
+                <p>Landscapes, horizons, and the quiet spaces in between.</p>
+              </div>
+            <nav>
+              <a href="index.html#hero">Basecamp</a>
+              <a href="about.html">About</a>
+              <a href="portfolio.html">Portfolio</a>
+              <a href="blog.html">Notes from the Field</a>
+              <a href="spotify.html">Soundtracks</a>
+              <a href="services.html">Services</a>
+              <a href="https://thejosephmoyerproject.printful.me/">The Store</a>
+            </nav>
+                <h3>Feathers &amp; Footprints</h3>
+                <p>Birds, wildlife, and the creatures that wander through the frame.</p>
+              </div>
+            </a>
 
-        <article class="collection-card">
-          <div class="collection-image">
-            <img src="assets/home/fav07.png" alt="Petals in Focus collection cover." />
-          </div>
-          <div class="collection-body">
-            <h3>Petals in Focus</h3>
-            <p>Florals that insist on being the main character.</p>
-          </div>
-        </article>
+            <!-- Urban Vibes -->
+            <a class="collection-card" href="portfolio-photography-urban-vibes.html">
+              <div class="collection-image">
+                <img src="Assets/Home/fav03.png" alt="Urban Vibes collection cover." loading="lazy" decoding="async" />
+              </div>
+              <div class="collection-body">
+                <h3>Urban Vibes</h3>
+                <p>City corners, street light, and the rhythm of everyday movement.</p>
+              </div>
+            </a>
 
-        <article class="collection-card">
-          <div class="collection-image">
-            <img src="assets/home/fav08.png" alt="Structures of Wonder collection cover." />
-          </div>
-          <div class="collection-body">
-            <h3>Structures of Wonder</h3>
-            <p>Towers, bridges, and built places where stories live.</p>
-          </div>
-        </article>
+            <!-- Moonlit Moments (blank card; links back home) -->
+            <a class="collection-card" href="index.html">
+              <div class="collection-image" style="background:#f5f7fa;min-height:160px"></div>
+              <div class="collection-body">
+                <h3>Moonlit Moments</h3>
+                <p>Placeholder — returning to home for now.</p>
+              </div>
+            </a>
 
-        <article class="collection-card">
-          <div class="collection-image">
-            <img src="assets/home/fav09.png" alt="Scenes from the Wild collection cover." />
+            <!-- Above Us -->
+            <a class="collection-card" href="portfolio-photography-above-us.html">
+              <div class="collection-image">
+                <img src="Assets/Home/fav04.png" alt="Above Us collection cover." loading="lazy" decoding="async" />
+              </div>
+              <div class="collection-body">
+                <h3>Above Us</h3>
+                <p>Clouds, sky, and moments that make you look up for a while.</p>
+              </div>
+            </a>
+
+            <!-- Petals in Focus (use fav09 as card image) -->
+            <a class="collection-card" href="portfolio-photography-petals-in-focus.html">
+              <div class="collection-image">
+                <img src="Assets/Home/fav09.png" alt="Petals in Focus collection cover." />
+              </div>
+              <div class="collection-body">
+                <h3>Petals in Focus</h3>
+                <p>Florals that insist on being the main character.</p>
+              </div>
+            </a>
+
+            <!-- Structures of Wonder (use fav03 as card image) -->
+            <a class="collection-card" href="portfolio-photography-structures-of-wonder.html">
+              <div class="collection-image">
+                <img src="Assets/Home/fav03.png" alt="Structures of Wonder collection cover." loading="lazy" decoding="async" />
+              </div>
+              <div class="collection-body">
+                <h3>Structures of Wonder</h3>
+                <p>Towers, bridges, and built places where stories live.</p>
+              </div>
+            </a>
+
+            <!-- Scenes from the Wild (use fav14 as card image) -->
+            <a class="collection-card" href="portfolio-photography-scenes-from-the-wild.html">
+              <div class="collection-image">
+                <img src="Assets/Home/fav14.png" alt="Scenes from the Wild collection cover." loading="lazy" decoding="async" />
+              </div>
+              <div class="collection-body">
+                <h3>Scenes from the Wild</h3>
+                <p>Water, rock, and all the in-between trails that stay with you.</p>
+              </div>
+            </a>
           </div>
-          <div class="collection-body">
-            <h3>Scenes from the Wild</h3>
-            <p>Water, rock, and all the in-between trails that stay with you.</p>
+
+          <!-- Everything At Once centered at the bottom -->
+          <div style="display:flex;justify-content:center;margin-top:2.25rem">
+            <a class="collection-card collection-card--small" href="portfolio-photography-everything-at-once.html" style="text-align:center">
+              <div class="collection-image">
+                <img src="Assets/Home/fav05.png" alt="Everything At Once cover" loading="lazy" decoding="async" />
+              </div>
+              <div class="collection-body">
+                <h3>Everything At Once</h3>
+                <p>Close-up details, textures, and visual chaos that somehow works.</p>
+              </div>
+            </a>
           </div>
-        </article>
+        </div>
+      </section>
+    </main>
+
+      <!-- LIGHTBOX -->
+      <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="" />
       </div>
-    </div>
-  </section>
-</main>
 
-</body>
-</html>
+      <!-- FOOTER -->
+      <footer>
+        <div class="container">
+          <div class="footer-top">
+            <div class="footer-brand">
+              <div class="footer-brand-title">The Joseph Moyer Project</div>
+              <p>Creative photography, writing, projection mapping, and marketing & design services.</p>
+            </div>
+            <div class="footer-cols">
+              <div>
+                <h4 class="footer-heading">Navigate</h4>
+                <div class="footer-links">
+                  <a href="index.html">Basecamp</a>
+                  <a href="about.html">About</a>
+                  <a href="portfolio.html">Portfolio</a>
+                  <a href="blog.html">Blog</a>
+                  <a href="services.html">Services</a>
+                  <a href="https://thejosephmoyerproject.printful.me/">Store</a>
+                </div>
+              </div>
+              <div>
+                <h4 class="footer-heading">Connect</h4>
+                <div class="footer-social">
+                    <a href="mailto:contact@josephmoyerproject.com">Email</a>
+                    <a href="https://instagram.com/josephmoyerproject" target="_blank" rel="noopener">Instagram</a>
+                    <a href="https://linkedin.com/in/josephmoyer" target="_blank" rel="noopener">LinkedIn</a>
+                    <a href="https://www.behance.net/JosephMoyer" target="_blank" rel="noopener">Behance</a>
+                  </div>
+              </div>
+              <div>
+                <h4 class="footer-heading">Legal</h4>
+                <div class="footer-legal">
+                  <a href="privacy.html">Privacy Policy</a>
+                  <a href="terms.html">Terms of Service</a>
+                  <a href="refund.html">Refund Policy</a>
+                  <a href="shipping.html">Shipping Policy</a>
+                  <a href="accessibility.html">Accessibility</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p>&copy; 2024 The Joseph Moyer Project. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+
+      <script>
+        // Lightbox functionality (re-uses simple approach)
+        function openLightbox(src, alt) {
+          const lightbox = document.getElementById('lightbox');
+          const lightboxImg = document.getElementById('lightbox-img');
+          lightboxImg.src = src;
+          lightboxImg.alt = alt || '';
+          lightbox.classList.add('active');
+          document.addEventListener('keydown', function onKey(e){ if(e.key==='Escape'){ closeLightbox(); document.removeEventListener('keydown', onKey); } });
+        }
+        function closeLightbox() { document.getElementById('lightbox').classList.remove('active'); }
+
+        // Prevent context menu on all images
+        document.addEventListener('DOMContentLoaded', function() {
+          const images = document.querySelectorAll('img');
+          images.forEach(img => {
+            img.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
+            img.addEventListener('dragstart', function(e) { e.preventDefault(); return false; });
+          });
+        });
+      </script>
+    </body>
+    </html>
+
